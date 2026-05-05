@@ -5,9 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using STS2_WineFox.Combat.Magic;
-using STS2_WineFox.Cards;
 using STS2RitsuLib.Interop.AutoRegistration;
-using STS2RitsuLib.Keywords;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace STS2_WineFox.Powers
@@ -28,7 +26,6 @@ namespace STS2_WineFox.Powers
             CardModel cardSource)
         {
             if (dealer != Owner) return 0m;
-            if (!cardSource.HasModKeyword(WineFoxKeywords.Chant)) return 0m;
 
             return Amount;
         }
