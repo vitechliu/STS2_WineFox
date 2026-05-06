@@ -20,29 +20,44 @@ namespace STS2_WineFox.Potions
     {
         protected abstract int SellGold { get; }
 
+        /// <summary>
+        ///     Whether this potion can be used outside combat (excluding merchant selling).
+        ///     Defaults to true for food.
+        /// </summary>
+        public virtual bool CanBeUsedOutOfCombat => true;
+
         public override PotionUsage Usage => PotionUsage.AnyTime;
 
         public override TargetType TargetType =>
-            CombatManager.Instance.IsInProgress ? CombatTargetType : TargetType.TargetedNoCreature;
+            Owner.RunState.CurrentRoom is MerchantRoom
+                ? TargetType.TargetedNoCreature
+                : CombatManager.Instance.IsInProgress
+                    ? CombatTargetType
+                    : TargetType.Self;
 
         protected virtual TargetType CombatTargetType => TargetType.Self;
 
         public override bool PassesCustomUsabilityCheck =>
-            CombatManager.Instance.IsInProgress || Owner.RunState.CurrentRoom is MerchantRoom;
+            CombatManager.Instance.IsInProgress
+            || Owner.RunState.CurrentRoom is MerchantRoom
+            || CanBeUsedOutOfCombat;
 
         protected sealed override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
         {
+            if (Owner.RunState.CurrentRoom is MerchantRoom)
+            {
+                ShowPotionVfx(NRun.Instance?.MerchantRoom?.MerchantButton);
+                await PlayerCmd.GainGold(SellGold, Owner);
+                return;
+            }
+
             if (CombatManager.Instance.IsInProgress)
             {
                 await OnUseInCombat(choiceContext, target);
                 return;
             }
 
-            if (Owner.RunState.CurrentRoom is MerchantRoom)
-            {
-                ShowPotionVfx(NRun.Instance?.MerchantRoom?.MerchantButton);
-                await PlayerCmd.GainGold(SellGold, Owner);
-            }
+            await OnUseInCombat(choiceContext, Owner.Creature);
         }
 
         public virtual PotionAssetProfile AssetProfile => PotionAssetProfile.Empty;
