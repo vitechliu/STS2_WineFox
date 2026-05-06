@@ -88,6 +88,7 @@ namespace STS2_WineFox
             patcher.RegisterPatch<WineFoxCreatureHitTriggerFlashPatch>();
             patcher.RegisterPatch<WineFoxCreatureDeathSmokePlaceholderPatch>();
             patcher.RegisterPatch<WineFoxMerchantSellablePotionTargetingPatch>();
+            patcher.RegisterPatch<WineFoxFoodPotionRewardPatch>();
             return patcher;
         }
 
