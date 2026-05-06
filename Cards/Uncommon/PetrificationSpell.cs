@@ -29,7 +29,7 @@ namespace STS2_WineFox.Cards.Uncommon
         ];
 
         protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Stone, WineFoxKeywords.Chant];
+            [WineFoxKeywords.Stone];
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];

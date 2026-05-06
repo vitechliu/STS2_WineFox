@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Content;
 using STS2RitsuLib.Keywords;
 
@@ -21,7 +21,6 @@ namespace STS2_WineFox.Cards
         public const string EasyPeasyKey = "easypeasy";
         public const string CraftKey = "craft";
         public const string ExchangeKey = "exchange";
-        public const string ChantKey = "chant";
 
         public static readonly string Stress = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, StressKey);
         public static readonly string Digging = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, DiggingKey);
@@ -40,7 +39,6 @@ namespace STS2_WineFox.Cards
         public static readonly string EasyPeasy = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, EasyPeasyKey);
         public static readonly string Craft = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, CraftKey);
         public static readonly string Exchange = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, ExchangeKey);
-        public static readonly string Chant = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, ChantKey);
 
         extension(CardModel card)
         {
@@ -92,11 +90,6 @@ namespace STS2_WineFox.Cards
             public bool IsEasyPeasy()
             {
                 return card.HasModKeyword(EasyPeasy);
-            }
-            
-            public bool IsChant()
-            {
-                return card.HasModKeyword(Chant);
             }
         }
     }
