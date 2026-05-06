@@ -22,6 +22,9 @@ namespace STS2_WineFox.Potions
 
         protected override Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target) =>
             CreatureCmd.Heal(Owner.Creature, 8);
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
+            CreatureCmd.Heal(Owner.Creature, 8);
     }
 }
 

@@ -26,6 +26,9 @@ namespace STS2_WineFox.Potions
             await CreatureCmd.Heal(Owner.Creature, 6);
             await PowerCmd.Apply<ThornsPower>(choiceContext, Owner.Creature, 5, Owner.Creature, cardSource: null);
         }
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
+            CreatureCmd.Heal(Owner.Creature, 6);
     }
 }
 

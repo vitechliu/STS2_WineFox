@@ -26,6 +26,8 @@ namespace STS2_WineFox.Potions
             await PowerCmd.Apply<PoisonPower>(choiceContext, Owner.Creature, 1, Owner.Creature, cardSource: null);
             await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, 1, Owner.Creature, cardSource: null);
         }
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) => Task.CompletedTask;
     }
 }
 

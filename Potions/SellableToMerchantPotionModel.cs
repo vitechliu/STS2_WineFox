@@ -57,7 +57,7 @@ namespace STS2_WineFox.Potions
                 return;
             }
 
-            await OnUseInCombat(choiceContext, Owner.Creature);
+            await OnUseOutOfCombat(choiceContext);
         }
 
         public virtual PotionAssetProfile AssetProfile => PotionAssetProfile.Empty;
@@ -70,6 +70,12 @@ namespace STS2_WineFox.Potions
         }
 
         protected abstract Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target);
+
+        /// <summary>
+        ///     Called when this potion is used outside combat (excluding merchant selling).
+        ///     Food should override this method and avoid applying special powers.
+        /// </summary>
+        protected virtual Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) => Task.CompletedTask;
 
         private static void ShowPotionVfx(NMerchantButton? merchantButton)
         {

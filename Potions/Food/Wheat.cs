@@ -21,6 +21,8 @@ namespace STS2_WineFox.Potions
 
         protected override Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target) =>
             Task.CompletedTask;
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) => Task.CompletedTask;
     }
 }
 

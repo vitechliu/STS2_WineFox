@@ -27,6 +27,9 @@ namespace STS2_WineFox.Potions
             await PowerCmd.Apply<RegenPower>(choiceContext, Owner.Creature, 6, Owner.Creature, cardSource: null);
             await PlayerCmd.GainGold(64, Owner);
         }
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
+            CreatureCmd.Heal(Owner.Creature, 10);
     }
 }
 

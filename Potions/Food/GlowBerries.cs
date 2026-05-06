@@ -27,6 +27,9 @@ namespace STS2_WineFox.Potions
             var hand = PileType.Hand.GetPile(Owner).Cards;
             CardCmd.Upgrade(hand, CardPreviewStyle.None);
         }
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
+            CreatureCmd.Heal(Owner.Creature, 3);
     }
 }
 

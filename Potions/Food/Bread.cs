@@ -25,6 +25,9 @@ namespace STS2_WineFox.Potions
             await CreatureCmd.Heal(Owner.Creature, 6);
             await CardPileCmd.Draw(choiceContext, 1, Owner);
         }
+
+        protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
+            CreatureCmd.Heal(Owner.Creature, 6);
     }
 }
 
