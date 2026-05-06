@@ -77,6 +77,25 @@ namespace STS2_WineFox.Potions
         /// </summary>
         protected virtual Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) => Task.CompletedTask;
 
+        public override Task AfterRoomEntered(AbstractRoom room)
+        {
+            if (room is not RestSiteRoom)
+                return Task.CompletedTask;
+
+            if (this is not ICampfireTransformPotion { CampfireTransformResult: { } result })
+                return Task.CompletedTask;
+
+            var owner = Owner;
+            var slotIndex = owner.GetPotionSlotIndex(this);
+            if (slotIndex < 0)
+                return Task.CompletedTask;
+
+            var newPotion = result.ToMutable();
+            owner.DiscardPotionInternal(this);
+            owner.AddPotionInternal(newPotion, slotIndex);
+            return Task.CompletedTask;
+        }
+
         private static void ShowPotionVfx(NMerchantButton? merchantButton)
         {
             if (TestMode.IsOn || merchantButton == null)
