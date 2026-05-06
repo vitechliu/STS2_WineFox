@@ -1,7 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Factories;
 using STS2_WineFox.Character;
+using STS2_WineFox.Potions;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -23,9 +23,13 @@ namespace STS2_WineFox.Relics
 
             while (Owner.HasOpenPotionSlots)
             {
-                var potion = PotionFactory
-                    .CreateRandomPotionOutOfCombat(Owner, Owner.RunState.Rng.CombatPotionGeneration)
-                    .ToMutable();
+                var potionModel = FoodPotionFactory.CreateRandomFoodPotionForReward(
+                    Owner,
+                    Owner.RunState.Rng.CombatPotionGeneration);
+                if (potionModel == null)
+                    break;
+
+                var potion = potionModel.ToMutable();
                 if (!(await PotionCmd.TryToProcure(potion, Owner)).success)
                     break;
             }
