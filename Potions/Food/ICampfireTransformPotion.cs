@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Entities.Potions;
+using MegaCrit.Sts2.Core.Models;
 
 namespace STS2_WineFox.Potions
 {

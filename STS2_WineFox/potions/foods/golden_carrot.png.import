@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chys7d8ekr7kf"
-path="res://.godot/imported/golden_glow_berries.png-ebe8ecfb73f04fd08a405a8614a9fd56.ctex"
+uid="uid://ba2pomng2am0m"
+path="res://.godot/imported/golden_carrot.png-e31cd54526ccb915aa7c373714308eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://STS2_WineFox/potions/foods/golden_glow_berries.png"
-dest_files=["res://.godot/imported/golden_glow_berries.png-ebe8ecfb73f04fd08a405a8614a9fd56.ctex"]
+source_file="res://STS2_WineFox/potions/foods/golden_carrot.png"
+dest_files=["res://.godot/imported/golden_carrot.png-e31cd54526ccb915aa7c373714308eeb.ctex"]
 
 [params]
 

@@ -1,9 +1,10 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Models.Powers;
 using STS2_WineFox.Character;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -11,23 +12,23 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace STS2_WineFox.Potions
 {
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
-    public sealed class Potato : SellableToMerchantPotionModel
+    public sealed class GoldenCarrot : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 8;
-        public override PotionRarity Rarity => PotionRarity.Common;
+        protected override int SellGold => 15;
+        public override PotionRarity Rarity => PotionRarity.Rare;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;
 
-        public override PotionAssetProfile AssetProfile => Art(Const.Paths.Potato);
+        public override PotionAssetProfile AssetProfile => Art(Const.Paths.GoldenCarrot);
 
         protected override async Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target)
         {
-            await CreatureCmd.Heal(Owner.Creature, 1);
-            await CreatureCmd.GainBlock(Owner.Creature, 3, ValueProp.Unpowered, cardPlay: null);
+            await CreatureCmd.Heal(Owner.Creature, 6);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, 3, Owner.Creature, cardSource: null);
         }
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
-            CreatureCmd.Heal(Owner.Creature, 1);
+            CreatureCmd.Heal(Owner.Creature, 6);
     }
 }
 

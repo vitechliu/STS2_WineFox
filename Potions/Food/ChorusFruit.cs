@@ -14,7 +14,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class ChorusFruit : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 20;
+        protected override int SellGold => 25;
         public override PotionRarity Rarity => PotionRarity.Rare;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;

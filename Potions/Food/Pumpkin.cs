@@ -13,7 +13,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class Pumpkin : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 12;
+        protected override int SellGold => 8;
         public override PotionRarity Rarity => PotionRarity.Common;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;
@@ -21,10 +21,10 @@ namespace STS2_WineFox.Potions
         public override PotionAssetProfile AssetProfile => Art(Const.Paths.Pumpkin);
 
         protected override Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target) =>
-            CreatureCmd.Heal(Owner.Creature, 8);
+            CreatureCmd.Heal(Owner.Creature, 4);
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
-            CreatureCmd.Heal(Owner.Creature, 8);
+            CreatureCmd.Heal(Owner.Creature, 4);
     }
 }
 

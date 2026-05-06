@@ -14,7 +14,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class GlowBerries : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 12;
+        protected override int SellGold => 15;
         public override PotionRarity Rarity => PotionRarity.Uncommon;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;
@@ -23,13 +23,13 @@ namespace STS2_WineFox.Potions
 
         protected override async Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target)
         {
-            await CreatureCmd.Heal(Owner.Creature, 3);
+            await CreatureCmd.Heal(Owner.Creature, 2);
             var hand = PileType.Hand.GetPile(Owner).Cards;
             CardCmd.Upgrade(hand, CardPreviewStyle.None);
         }
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
-            CreatureCmd.Heal(Owner.Creature, 3);
+            CreatureCmd.Heal(Owner.Creature, 2);
     }
 }
 

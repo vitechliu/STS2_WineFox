@@ -14,7 +14,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class MushroomStew : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 18;
+        protected override int SellGold => 12;
         public override PotionRarity Rarity => PotionRarity.Uncommon;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;

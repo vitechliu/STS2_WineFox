@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bamkwbj05tntl"
-path="res://.godot/imported/beetroot_soup.png-08b8302f3118426a867659ec71debdee.ctex"
+uid="uid://ctw64nm61rgp6"
+path="res://.godot/imported/cake.png-87e63af324a099f17cdd22cf0f7ba690.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://STS2_WineFox/potions/foods/beetroot_soup.png"
-dest_files=["res://.godot/imported/beetroot_soup.png-08b8302f3118426a867659ec71debdee.ctex"]
+source_file="res://STS2_WineFox/potions/foods/cake.png"
+dest_files=["res://.godot/imported/cake.png-87e63af324a099f17cdd22cf0f7ba690.ctex"]
 
 [params]
 

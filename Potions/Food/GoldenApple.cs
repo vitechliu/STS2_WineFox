@@ -14,7 +14,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class GoldenApple : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 64;
+        protected override int SellGold => 25;
         public override PotionRarity Rarity => PotionRarity.Rare;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;
@@ -23,13 +23,12 @@ namespace STS2_WineFox.Potions
 
         protected override async Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target)
         {
-            await CreatureCmd.Heal(Owner.Creature, 10);
-            await PowerCmd.Apply<RegenPower>(choiceContext, Owner.Creature, 6, Owner.Creature, cardSource: null);
-            await PlayerCmd.GainGold(64, Owner);
+            await CreatureCmd.Heal(Owner.Creature, 4);
+            await PowerCmd.Apply<RegenPower>(choiceContext, Owner.Creature, 5, Owner.Creature, cardSource: null);
         }
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
-            CreatureCmd.Heal(Owner.Creature, 10);
+            CreatureCmd.Heal(Owner.Creature, 4);
     }
 }
 

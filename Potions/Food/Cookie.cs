@@ -13,7 +13,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class Cookie : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 4;
+        protected override int SellGold => 5;
         public override PotionRarity Rarity => PotionRarity.Common;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;
@@ -21,10 +21,10 @@ namespace STS2_WineFox.Potions
         public override PotionAssetProfile AssetProfile => Art(Const.Paths.Cookie);
 
         protected override Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target) =>
-            CreatureCmd.Heal(Owner.Creature, 1);
+            CreatureCmd.Heal(Owner.Creature, 2);
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
-            CreatureCmd.Heal(Owner.Creature, 1);
+            CreatureCmd.Heal(Owner.Creature, 2);
     }
 }
 

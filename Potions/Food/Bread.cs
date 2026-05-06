@@ -13,7 +13,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class Bread : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 20;
+        protected override int SellGold => 15;
         public override PotionRarity Rarity => PotionRarity.Uncommon;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;
@@ -22,12 +22,12 @@ namespace STS2_WineFox.Potions
 
         protected override async Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target)
         {
-            await CreatureCmd.Heal(Owner.Creature, 6);
+            await CreatureCmd.Heal(Owner.Creature, 5);
             await CardPileCmd.Draw(choiceContext, 1, Owner);
         }
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>
-            CreatureCmd.Heal(Owner.Creature, 6);
+            CreatureCmd.Heal(Owner.Creature, 5);
     }
 }
 

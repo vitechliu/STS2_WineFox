@@ -14,7 +14,7 @@ namespace STS2_WineFox.Potions
     [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class Carrot : SellableToMerchantPotionModel
     {
-        protected override int SellGold => 12;
+        protected override int SellGold => 8;
         public override PotionRarity Rarity => PotionRarity.Common;
         protected override TargetType CombatTargetType => TargetType.Self;
         public override bool CanBeGeneratedInCombat => false;

@@ -259,6 +259,9 @@ namespace STS2_WineFox
             public const string SweetBerries = Root + "/potions/foods/sweet_berries.png";
             public const string Watermelon = Root + "/potions/foods/watermelon.png";
             public const string Wheat = Root + "/potions/foods/wheat.png";
+            public const string Cake = Root + "/potions/foods/cake.png";
+            public const string GlisteringMelon = Root + "/potions/foods/glistering_melon.png";
+            public const string GoldenCarrot = Root + "/potions/foods/golden_carrot.png";
         }
 
         public static class Audio
