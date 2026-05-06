@@ -236,6 +236,29 @@ namespace STS2_WineFox
             //FMOD BANK
             public const string WineFoxBank = Root + "/sfx/characters/WineFox.bank";
             public const string WineFoxGuidsFile = Root + "/sfx/characters/WineFox.guids.txt";
+            
+            //Food
+            public const string Apple = Root + "/potions/foods/apple.png";
+            public const string GoldenApple = Root + "/potions/foods/golden_apple.png";
+            public const string BakedPotato = Root + "/potions/foods/baked_potato.png";
+            public const string Beet = Root + "/potions/foods/beet.png";
+            public const string BeetSoup = Root + "/potions/foods/beet_soup.png";
+            public const string Bread = Root + "/potions/foods/bread.png";
+            public const string Carrot = Root + "/potions/foods/carrot.png";
+            public const string ChorusFruit = Root + "/potions/foods/chorus_fruit.png";
+            public const string Cookie = Root + "/potions/foods/cookie.png";
+            public const string EnchantedGoldenApple = Root + "/potions/foods/enchanted_golden_apple.png";
+            public const string GlowBerries = Root + "/potions/foods/glow_berries.png";
+            public const string GoldenSweetBerries = Root + "/potions/foods/golden_sweet_berries.png";
+            public const string Mushroom = Root + "/potions/foods/mushroom.png";
+            public const string MushroomStew = Root + "/potions/foods/mushroom_stew.png";
+            public const string Potato = Root + "/potions/foods/potato.png";
+            public const string Pumpkin = Root + "/potions/foods/pumpkin.png";
+            public const string PumpkinPie = Root + "/potions/foods/pumpkin_pie.png";
+            public const string SmokedCarrot = Root + "/potions/foods/smoked_carrot.png";
+            public const string SweetBerries = Root + "/potions/foods/sweet_berries.png";
+            public const string Watermelon = Root + "/potions/foods/watermelon.png";
+            public const string Wheat = Root + "/potions/foods/wheat.png";
         }
 
         public static class Audio

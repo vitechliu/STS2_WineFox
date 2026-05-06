@@ -202,13 +202,13 @@
   "STS2_WINE_FOX_CARD_MAGIC_MISSILE.title": "魔法飞弹",
   "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "使一名敌人失去{Damage:diff()}点生命，共2次。\n获得{ChantPower:diff()}点[gold]吟唱[/gold]。",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.title": "屏障波",
-  "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": "使所有敌人失去{Damage:diff()}点生命。获得{Block:diff()}点格挡。\n获得{ChantPower:diff()}点[gold]吟唱[/gold]。",
+  "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": "使所有敌人失去{Damage:diff()}点生命。获得{ChantBlock:diff()}点格挡。\n获得{ChantPower:diff()}点[gold]吟唱[/gold]。",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "间隙咏唱",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "获得1层[gold]虚弱[/gold]。每当你使敌人失去生命时，该敌人获得[blue]1[/blue]点格挡，你获得[blue]{Block:diff()}[/blue]点格挡。",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.title": "爆裂魔法",
-  "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.description": "给予所有敌人{Burn:diff()}层[gold]烧伤[/gold]。失去3点[gold]敏捷[/gold]。",
+  "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.description": "给予所有敌人{Burn:diff()}层[gold]烧伤[/gold]{Hits:diff()}次。\n失去3点[gold]吟唱[/gold]。",
   "STS2_WINE_FOX_CARD_EROSION.title": "溃蚀",
-  "STS2_WINE_FOX_CARD_EROSION.description": "给予一名敌人{Stacks:diff()}层[gold]消亡[/gold]。所有拥有[gold]消亡[/gold]的敌人失去等同于其层数的生命。",
+  "STS2_WINE_FOX_CARD_EROSION.description": "给予一名敌人{Stacks:diff()}层[gold]消亡[/gold]。所有拥有[gold]消亡[/gold]的敌人失去等同于其层数的生命。\n获得{ChantPower:diff()}点[gold]吟唱[/gold]。",
 
   "STS2_WINE_FOX_CARD_MEMORY.title": "回忆",
   "STS2_WINE_FOX_CARD_MEMORY.description": "在你的回合开始时，将你上一回合最后打出的[gold]技能牌[/gold]的一张带有[gold]消耗[/gold]{IfUpgraded:show:，[gold]保留[/gold]|}的复制品加入你的手牌。",
@@ -218,7 +218,7 @@
   "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE": "选择要复制的牌",
 
   "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.title": "石化术",
-  "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.description": "获得{Stones:diff()}个[gold]圆石[/gold]。使所有敌人失去等同于获得[gold]圆石[/gold]数量的生命。",
+  "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.description": "获得{Stones:diff()}个[gold]圆石[/gold]。使所有敌人失去等同于你本回合获得[gold]圆石[/gold]数量的生命。\n获得{ChantPower:diff()}点[gold]吟唱[/gold]。",
 
   "STS2_WINE_FOX_CARD_LAUNCH_PLATFORM.title": "弹射置物台",
   "STS2_WINE_FOX_CARD_LAUNCH_PLATFORM.description": "每回合第一次消耗[gold]应力[/gold]时，获得{Energy:energyIcons()}。",

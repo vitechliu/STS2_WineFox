@@ -2,10 +2,12 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2_WineFox.Character;
 using STS2_WineFox.Powers;
+using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -22,15 +24,16 @@ namespace STS2_WineFox.Cards.Common
     {
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            WineFoxCardVarFactory.ChantDamageVar(
-                "Damage",
-                5m),
+            WineFoxCardVarFactory.ChantDamageVar("Damage", 5m),
             WineFoxCardVarFactory.PowerAmountVar<ChantPower>(1m),
             WineFoxCardVarFactory.BlockAmountVar(5m),
+            ModCardVars.Computed("ChantBlock", 5m, card => WineFoxCardVarFactory.ChantScaledAmount(card, "Block")),
         ];
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-            [HoverTipFactory.FromPower<ChantPower>()];
+        [
+            HoverTipFactory.FromPower<ChantPower>(),
+        ];
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardBarrierWave);
 
@@ -50,11 +53,10 @@ namespace STS2_WineFox.Cards.Common
                     ValueProp.Unblockable | ValueProp.Unpowered,
                     owner,
                     this);
-
-            var chantToGain = WineFoxCardVarFactory.ChantScaledPowerAmount<ChantPower>(this);
+            
             var blockToGain = WineFoxCardVarFactory.ChantScaledAmount(this, "Block");
 
-            await PowerCmd.Apply<ChantPower>(choiceContext, owner, chantToGain, owner, this);
+            await PowerCmd.Apply<ChantPower>(choiceContext, owner, DynamicVars["ChantPower"].BaseValue, owner, this);
             await CreatureCmd.GainBlock(owner, blockToGain, ValueProp.Move, play);
         }
 

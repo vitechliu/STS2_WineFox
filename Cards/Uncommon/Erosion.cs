@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2_WineFox.Character;
 using STS2_WineFox.Powers;
+using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -14,19 +15,23 @@ namespace STS2_WineFox.Cards.Uncommon
 {
     /// <summary>
     ///     溃蚀 - 1 cost Skill Uncommon.
-    ///     给予 6 层瓦解（DisintegrationPower）。所有拥有瓦解的敌人失去与层数相同的生命。
-    ///     升级：变为 10 层。
+    ///     给予 5+ChantPower 层瓦解（DemisePower）。所有拥有瓦解的敌人失去与层数相同的生命。
+    ///     获得 1 点吟唱。升级：变为 9+ChantPower 层。
     /// </summary>
     [RegisterCard(typeof(WineFoxCardPool))]
     public class Erosion() : WineFoxCard(
         1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars =>
-            [new IntVar("Stacks", 6m)];
+        [
+            ModCardVars.Computed("Stacks", 5m, card => WineFoxCardVarFactory.ChantScaledAmount(card, "Stacks")),
+            WineFoxCardVarFactory.PowerAmountVar<ChantPower>(1m),
+        ];
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
         [
             HoverTipFactory.FromPower<DemisePower>(),
+            HoverTipFactory.FromPower<ChantPower>(),
         ];
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardErosion);
@@ -40,7 +45,13 @@ namespace STS2_WineFox.Cards.Uncommon
             var owner = Owner.Creature;
             if (owner.CombatState is not { } combatState) return;
 
-            await PowerCmd.Apply<DemisePower>(new ThrowingPlayerChoiceContext(), play.Target, DynamicVars["Stacks"].BaseValue, owner, this);
+            var stacks = WineFoxCardVarFactory.ChantScaledAmount(this, "Stacks");
+            await PowerCmd.Apply<DemisePower>(
+                new ThrowingPlayerChoiceContext(),
+                play.Target,
+                stacks,
+                owner,
+                this);
 
             foreach (var enemy in combatState.HittableEnemies.ToList())
             {
@@ -55,6 +66,8 @@ namespace STS2_WineFox.Cards.Uncommon
                     owner,
                     this);
             }
+
+            await PowerCmd.Apply<ChantPower>(choiceContext, owner, DynamicVars["ChantPower"].BaseValue, owner, this);
         }
 
         protected override void OnUpgrade()
@@ -63,4 +76,3 @@ namespace STS2_WineFox.Cards.Uncommon
         }
     }
 }
-

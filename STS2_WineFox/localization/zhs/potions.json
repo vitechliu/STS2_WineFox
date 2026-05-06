@@ -13,6 +13,8 @@
   "STS2_WINE_FOX_POTION_BEET_SOUP.description": "获得6点生命值，2层覆甲。\n也可以投掷给[gold]商人[/gold]换取[blue]18[/blue][gold]金币[/gold]。",
   "STS2_WINE_FOX_POTION_APPLE.title": "苹果",
   "STS2_WINE_FOX_POTION_APPLE.description": "获得2点生命值，2层再生。\n也可以投掷给[gold]商人[/gold]换取[blue]15[/blue][gold]金币[/gold]。",
+  "STS2_WINE_FOX_POTION_GOLDEN_APPLE.title": "金苹果",
+  "STS2_WINE_FOX_POTION_GOLDEN_APPLE.description": "获得10点生命值，6层再生，64金币。\n也可以投掷给[gold]商人[/gold]换取[blue]64[/blue][gold]金币[/gold]。",
   "STS2_WINE_FOX_POTION_ENCHANTED_GOLDEN_APPLE.title": "附魔金苹果",
   "STS2_WINE_FOX_POTION_ENCHANTED_GOLDEN_APPLE.description": "获得15点生命值，12层再生，15点格挡。受到伤害-2。\n也可以投掷给[gold]商人[/gold]换取[blue]128[/blue][gold]金币[/gold]。",
   "STS2_WINE_FOX_POTION_WATERMELON.title": "西瓜",

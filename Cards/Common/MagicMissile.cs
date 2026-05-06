@@ -29,7 +29,9 @@ namespace STS2_WineFox.Cards.Common
         ];
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-            [HoverTipFactory.FromPower<ChantPower>()];
+        [
+            HoverTipFactory.FromPower<ChantPower>(),
+        ];
         
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardMagicMissile);
 

@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
@@ -13,10 +12,11 @@ using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace STS2_WineFox.Potions
 {
-    public abstract class SellableToMerchantPotionModel : PotionModel
+    public abstract class SellableToMerchantPotionModel : PotionModel, IModPotionAssetOverrides
     {
         protected abstract int SellGold { get; }
 
@@ -45,6 +45,15 @@ namespace STS2_WineFox.Potions
             }
         }
 
+        public virtual PotionAssetProfile AssetProfile => PotionAssetProfile.Empty;
+        public virtual string? CustomImagePath => AssetProfile.ImagePath;
+        public virtual string? CustomOutlinePath => AssetProfile.OutlinePath;
+
+        protected static PotionAssetProfile Art(string imagePath, string? outlinePath = null)
+        {
+            return new(imagePath, outlinePath ?? imagePath);
+        }
+
         protected abstract Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target);
 
         private static void ShowPotionVfx(NMerchantButton? merchantButton)
@@ -53,7 +62,7 @@ namespace STS2_WineFox.Potions
                 return;
 
             var scenePath = SceneHelper.GetScenePath("vfx/vfx_slime_impact");
-            var vfx = PreloadManager.Cache.GetScene(scenePath).Instantiate<Node2D>(PackedScene.GenEditState.Disabled);
+            var vfx = PreloadManager.Cache.GetScene(scenePath).Instantiate<Node2D>();
             merchantButton.GetParent().AddChildSafely(vfx);
             vfx.GlobalPosition = merchantButton.GlobalPosition;
         }

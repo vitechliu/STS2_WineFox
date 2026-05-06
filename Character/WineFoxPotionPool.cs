@@ -10,5 +10,10 @@ namespace STS2_WineFox.Character
         public override string? BigEnergyIconPath => Const.Paths.EnergyIconCake;
         public override string? TextEnergyIconPath => Const.Paths.EnergyIconCake;
         public override Color LabOutlineColor => WineFox.Color;
+
+        public static PotionAssetProfile Art(string imagePath, string? outlinePath = null)
+        {
+            return new(imagePath, outlinePath ?? imagePath);
+        }
     }
 }

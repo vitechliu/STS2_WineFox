@@ -13,6 +13,8 @@
   "STS2_WINE_FOX_POTION_BEET_SOUP.description": "Gain 6 HP and 2 Plated Armor.\nYou can also throw it at the [gold]Merchant[/gold] to gain [blue]18[/blue][gold] Gold[/gold].",
   "STS2_WINE_FOX_POTION_APPLE.title": "Apple",
   "STS2_WINE_FOX_POTION_APPLE.description": "Gain 2 HP and 2 Regen.\nYou can also throw it at the [gold]Merchant[/gold] to gain [blue]15[/blue][gold] Gold[/gold].",
+  "STS2_WINE_FOX_POTION_GOLDEN_APPLE.title": "Golden Apple",
+  "STS2_WINE_FOX_POTION_GOLDEN_APPLE.description": "Gain 10 HP, 6 Regen, and 64 Gold.\nYou can also throw it at the [gold]Merchant[/gold] to gain [blue]64[/blue][gold] Gold[/gold].",
   "STS2_WINE_FOX_POTION_ENCHANTED_GOLDEN_APPLE.title": "Enchanted Golden Apple",
   "STS2_WINE_FOX_POTION_ENCHANTED_GOLDEN_APPLE.description": "Gain 15 HP, 12 Regen, and 15 Block. Take 2 less damage.\nYou can also throw it at the [gold]Merchant[/gold] to gain [blue]128[/blue][gold] Gold[/gold].",
   "STS2_WINE_FOX_POTION_WATERMELON.title": "Watermelon",
