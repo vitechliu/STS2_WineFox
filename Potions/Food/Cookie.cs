@@ -10,12 +10,13 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace STS2_WineFox.Potions
 {
-    [RegisterPotion(typeof(WineFoxPotionPool))]
+    [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class Cookie : SellableToMerchantPotionModel
     {
         protected override int SellGold => 4;
         public override PotionRarity Rarity => PotionRarity.Common;
         protected override TargetType CombatTargetType => TargetType.Self;
+        public override bool CanBeGeneratedInCombat => false;
 
         public override PotionAssetProfile AssetProfile => Art(Const.Paths.Cookie);
 

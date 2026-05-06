@@ -11,12 +11,13 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace STS2_WineFox.Potions
 {
-    [RegisterPotion(typeof(WineFoxPotionPool))]
+    [RegisterPotion(typeof(WineFoxFoodPotionPool))]
     public sealed class GoldenApple : SellableToMerchantPotionModel
     {
         protected override int SellGold => 64;
         public override PotionRarity Rarity => PotionRarity.Rare;
         protected override TargetType CombatTargetType => TargetType.Self;
+        public override bool CanBeGeneratedInCombat => false;
 
         public override PotionAssetProfile AssetProfile => Art(Const.Paths.GoldenApple);
 
