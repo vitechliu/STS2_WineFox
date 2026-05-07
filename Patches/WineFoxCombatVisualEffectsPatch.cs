@@ -18,7 +18,9 @@ namespace STS2_WineFox.Patches
             return [new(typeof(Creature), nameof(Creature.LoseHpInternal))];
         }
 
+        // ReSharper disable InconsistentNaming
         public static void Postfix(Creature __instance, DamageResult __result)
+            // ReSharper restore InconsistentNaming
         {
             if (__result.UnblockedDamage <= 0)
                 return;
@@ -40,6 +42,7 @@ namespace STS2_WineFox.Patches
             return [new(typeof(Creature), nameof(Creature.InvokeDiedEvent))];
         }
 
+        // ReSharper disable once InconsistentNaming
         public static void Postfix(Creature __instance)
         {
             if (!WineFoxCombatVisualEffects.TryIsWineFoxInParty(__instance))
@@ -60,6 +63,7 @@ namespace STS2_WineFox.Patches
             return [new(typeof(NCreature), nameof(NCreature.SetAnimationTrigger))];
         }
 
+        // ReSharper disable once InconsistentNaming
         public static void Postfix(NCreature __instance, string trigger)
         {
             if (!string.Equals(trigger, "Hit", StringComparison.Ordinal))
@@ -84,12 +88,9 @@ namespace STS2_WineFox.Patches
             if (combatState == null)
                 return false;
 
-            foreach (var player in combatState.Players)
-                if (player.Character is WineFox
-                    || player.Character.Id.Entry.Contains("winefox", StringComparison.OrdinalIgnoreCase))
-                    return true;
-
-            return false;
+            return combatState.Players.Any(player =>
+                player.Character is WineFox ||
+                player.Character.Id.Entry.Contains("winefox", StringComparison.OrdinalIgnoreCase));
         }
 
         public static void TryPlayHitFlash(Creature creature)
