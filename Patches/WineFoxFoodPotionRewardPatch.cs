@@ -12,7 +12,8 @@ namespace STS2_WineFox.Patches
         private const float BaseOdds = 0.4f;
         private const float TargetOdds = 0.5f;
         private const float EliteBonus = 0.25f;
-        private const float Step = 0.1f;
+        private const float IncrementStep = 0.1f;
+        private const float LoseStep = 0.2f;
 
         // SavedAttachedState doesn't support float, so store as basis points (0..10000).
         private static readonly SavedAttachedState<Player, int> FoodOddsBasisPoints =
@@ -57,21 +58,12 @@ namespace STS2_WineFox.Patches
             var current = currentBp / 10000f;
             var roll = rng.NextFloat();
 
-            // Mirror PotionRewardOdds behavior (separate tracker).
-            if (roll < current)
-                current -= Step;
-            else
-                current += Step;
-
-            currentBp = NormalizeOddValue(current);
-            current = currentBp / 10000f;
-
             var bonus = room.RoomType == RoomType.Elite ? EliteBonus : 0f;
             var success = roll < current + bonus * TargetOdds;
 
             if (!success)
             {
-                FoodOddsBasisPoints[player] = currentBp;
+                FoodOddsBasisPoints[player] = NormalizeOddValue(current + IncrementStep);
                 return;
             }
 
@@ -80,11 +72,7 @@ namespace STS2_WineFox.Patches
                 return;
 
             __instance.Rewards.Add(new PotionReward(potion, player));
-
-            current -= Step;
-            currentBp = NormalizeOddValue(current);
-
-            FoodOddsBasisPoints[player] = currentBp;
+            FoodOddsBasisPoints[player] = NormalizeOddValue(current - LoseStep);
         }
 
         private static int NormalizeOddValue(float value)
