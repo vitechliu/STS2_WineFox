@@ -19,7 +19,7 @@ namespace STS2_WineFox.Powers
         private bool _noEthereal;
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
-        public override bool IsInstanced => true;
+        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.GoldenSwordPowerIcon);

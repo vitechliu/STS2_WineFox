@@ -18,9 +18,9 @@ namespace STS2_WineFox.Cards.Deleted.NoMoreFalchion
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardSteelChamber);
 
-        protected override PileType GetResultPileType()
+        protected override PileType GetResultPileTypeForCardPlay()
         {
-            var result = base.GetResultPileType();
+            var result = base.GetResultPileTypeForCardPlay();
             return result != PileType.Discard ? result : PileType.Hand;
         }
 

@@ -22,7 +22,7 @@ namespace STS2_WineFox.Powers
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new("Threshold", 2m)];
 
-        public override bool IsInstanced => true;
+        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
         public override int DisplayAmount
         {

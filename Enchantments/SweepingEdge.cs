@@ -37,24 +37,26 @@ namespace STS2_WineFox.Enchantments
             var opponents = combatState.GetOpponentsOf(ownerCreature).Where(enemy => enemy.IsAlive).ToList();
             if (opponents.Count == 0) return;
 
-            foreach (var result in command.Results)
+            foreach (var hitResults in command.Results)
             {
-                if (result.Receiver is not { } receiver) continue;
-
-                var resultDamage = result.TotalDamage + result.OverkillDamage;
-                if (resultDamage <= 0) continue;
-
-                var sweepDamage = Math.Ceiling(resultDamage * 0.5m);
-                if (sweepDamage <= 0m) continue;
-
-                foreach (var enemy in opponents)
+                foreach (var result in hitResults)
                 {
-                    if (enemy == receiver) continue;
+                    var receiver = result.Receiver;
+                    var resultDamage = result.TotalDamage + result.OverkillDamage;
+                    if (resultDamage <= 0) continue;
 
-                    if (pendingSweepDamage.TryGetValue(enemy, out var existingDamage))
-                        pendingSweepDamage[enemy] = existingDamage + sweepDamage;
-                    else
-                        pendingSweepDamage[enemy] = sweepDamage;
+                    var sweepDamage = Math.Ceiling(resultDamage * 0.5m);
+                    if (sweepDamage <= 0m) continue;
+
+                    foreach (var enemy in opponents)
+                    {
+                        if (enemy == receiver) continue;
+
+                        if (pendingSweepDamage.TryGetValue(enemy, out var existingDamage))
+                            pendingSweepDamage[enemy] = existingDamage + sweepDamage;
+                        else
+                            pendingSweepDamage[enemy] = sweepDamage;
+                    }
                 }
             }
 

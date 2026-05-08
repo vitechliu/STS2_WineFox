@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -26,12 +27,23 @@ namespace STS2_WineFox.Powers
             return Task.CompletedTask;
         }
 
-        public override async Task AfterCardRetained(CardModel card)
+        public override async Task AfterFlush(
+            PlayerChoiceContext choiceContext,
+            Player player,
+            IReadOnlyCollection<CardModel> flushedCards,
+            IReadOnlyCollection<CardModel> retainedCards)
         {
-            if (card.Owner?.Creature != Owner) return;
+            if (player.Creature != Owner)
+                return;
 
-            Flash();
-            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
+            foreach (var card in retainedCards)
+            {
+                if (card.Owner?.Creature != Owner)
+                    continue;
+
+                Flash();
+                await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
+            }
         }
     }
 }

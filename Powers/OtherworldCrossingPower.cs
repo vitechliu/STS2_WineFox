@@ -24,7 +24,7 @@ namespace STS2_WineFox.Powers
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.OtherworldCrossingPowerIcon);
 
-        public override bool IsInstanced => true;
+        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
         
         protected override async Task OnAfterPlayerTurnStart(
             PlayerChoiceContext choiceContext, Player player)

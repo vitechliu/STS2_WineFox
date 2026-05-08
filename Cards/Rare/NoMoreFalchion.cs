@@ -23,9 +23,9 @@ namespace STS2_WineFox.Cards.Rare
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardNoMoreFalchion);
 
         // 打出后返回手牌
-        protected override PileType GetResultPileType()
+        protected override PileType GetResultPileTypeForCardPlay()
         {
-            var result = base.GetResultPileType();
+            var result = base.GetResultPileTypeForCardPlay();
             return result != PileType.Discard ? result : PileType.Hand;
         }
 

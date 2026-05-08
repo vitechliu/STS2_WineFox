@@ -19,7 +19,7 @@ namespace STS2_WineFox.Powers
 
         public override int DisplayAmount => Amount + GetInternalData<Data>().Amount;
 
-        public override bool IsInstanced => true;
+        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
         protected override object InitInternalData()
         {

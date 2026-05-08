@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -28,9 +29,16 @@ namespace STS2_WineFox.Cards.Uncommon
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardHammerStrike);
 
-        public override Task AfterCardRetained(CardModel card)
+        public override Task AfterFlush(
+            PlayerChoiceContext choiceContext,
+            Player player,
+            IReadOnlyCollection<CardModel> flushedCards,
+            IReadOnlyCollection<CardModel> retainedCards)
         {
-            if (!ReferenceEquals(card, this)) return Task.CompletedTask;
+            if (player != Owner)
+                return Task.CompletedTask;
+            if (!retainedCards.Contains(this))
+                return Task.CompletedTask;
 
             EnergyCost.AddThisCombat(-1);
             return Task.CompletedTask;
