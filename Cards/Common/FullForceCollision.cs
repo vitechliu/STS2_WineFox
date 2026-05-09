@@ -39,7 +39,7 @@ namespace STS2_WineFox.Cards.Common
 
 
             var dazed = combatState.CreateCard<Dazed>(Owner);
-            var dazedInstance = await CardPileCmd.AddGeneratedCardToCombat(dazed, PileType.Draw, Owner);
+            var dazedInstance = await CardPileCmd.AddGeneratedCardToCombat(dazed, PileType.Draw, true);
             CardCmd.PreviewCardPileAdd(dazedInstance);
         }
 

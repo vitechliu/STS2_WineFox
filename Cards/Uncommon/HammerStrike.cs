@@ -29,15 +29,11 @@ namespace STS2_WineFox.Cards.Uncommon
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardHammerStrike);
 
-        public override Task AfterFlush(
-            PlayerChoiceContext choiceContext,
-            Player player,
-            IReadOnlyCollection<CardModel> flushedCards,
-            IReadOnlyCollection<CardModel> retainedCards)
+        public override Task AfterCardRetained(CardModel card)
         {
-            if (player != Owner)
+            if (card != this)
                 return Task.CompletedTask;
-            if (!retainedCards.Contains(this))
+            if (card.Owner != Owner)
                 return Task.CompletedTask;
 
             EnergyCost.AddThisCombat(-1);

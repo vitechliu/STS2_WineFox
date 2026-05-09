@@ -61,7 +61,7 @@ namespace STS2_WineFox.Cards.Uncommon
                     combatState.AddCard(clone, target.Player);
                 }
 
-                var instance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, target.Player);
+                var instance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, true);
                 if (LocalContext.IsMe(target))
                     CardCmd.PreviewCardPileAdd(instance);
 

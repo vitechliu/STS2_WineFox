@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -28,8 +28,8 @@ namespace STS2_WineFox.Cards.Rare
             CardPlay play)
         {
             var creature = Owner.Creature;
-            await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), creature, DynamicVars["Plating"].BaseValue, creature, this);
-            await PowerCmd.Apply<NetheriteChestPlatePower>(new ThrowingPlayerChoiceContext(), creature, 1m, creature, this);
+            await PowerCmd.Apply<PlatingPower>(creature, DynamicVars["Plating"].BaseValue, creature, this);
+            await PowerCmd.Apply<NetheriteChestPlatePower>(creature, 1m, creature, this);
         }
 
         protected override void OnUpgrade()

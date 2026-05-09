@@ -48,16 +48,14 @@ namespace STS2_WineFox.Cards.Rare
             {
                 foreach (var enemy in combatState.HittableEnemies.ToList())
                 {
-                    await PowerCmd.Apply<BurningPower>(
-                        new ThrowingPlayerChoiceContext(),
-                        enemy,
+                    await PowerCmd.Apply<BurningPower>(enemy,
                         burn,
                         owner,
                         this);
                 }
             }
 
-            await PowerCmd.Apply<ChantPower>(new ThrowingPlayerChoiceContext(), owner, DynamicVars["ChantPower"].BaseValue, owner, this);
+            await PowerCmd.Apply<ChantPower>(owner, DynamicVars["ChantPower"].BaseValue, owner, this);
         }
 
         protected override void OnUpgrade()

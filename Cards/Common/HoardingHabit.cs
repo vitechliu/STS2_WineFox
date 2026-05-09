@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -49,7 +49,7 @@ namespace STS2_WineFox.Cards.Common
                 applyStress: false);
 
             var materialNextTurn = DynamicVars["NextTurnMaterial"].BaseValue * mult;
-            await PowerCmd.Apply<HoardingHabitPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+            await PowerCmd.Apply<HoardingHabitPower>(Owner.Creature,
                 materialNextTurn,
                 Owner.Creature,
                 this);

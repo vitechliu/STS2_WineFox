@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -24,7 +24,7 @@ namespace STS2_WineFox.Powers
             _reacting = true;
             try
             {
-                await PowerCmd.Apply<HighlyFocusedPower>(new ThrowingPlayerChoiceContext(), Owner, strength, Owner, null);
+                await PowerCmd.Apply<HighlyFocusedPower>(Owner, strength, Owner, null);
             }
             finally
             {
@@ -33,7 +33,6 @@ namespace STS2_WineFox.Powers
         }
 
         public override async Task AfterPowerAmountChanged(
-            PlayerChoiceContext choiceContext,
             PowerModel power,
             decimal amount,
             Creature? applier,
@@ -48,7 +47,7 @@ namespace STS2_WineFox.Powers
             try
             {
                 Flash();
-                await PowerCmd.Apply<HighlyFocusedPower>(new ThrowingPlayerChoiceContext(), Owner, amount, Owner, null);
+                await PowerCmd.Apply<HighlyFocusedPower>(Owner, amount, Owner, null);
             }
             finally
             {

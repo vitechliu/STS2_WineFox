@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,8 +22,8 @@ namespace STS2_WineFox.Powers
             if (player.Creature != Owner) return;
 
             Flash();
-            await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner, 4m, Owner, null);
-            await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), this, -1m, null, null);
+            await PowerCmd.Apply<VigorPower>(Owner, 4m, Owner, null);
+            await PowerCmd.ModifyAmount(this, -1m, null, null);
 
             if (Amount <= 0m)
                 await PowerCmd.Remove(this);

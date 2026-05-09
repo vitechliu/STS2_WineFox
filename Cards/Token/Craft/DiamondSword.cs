@@ -35,7 +35,7 @@ namespace STS2_WineFox.Cards.Token.Craft
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);
 
-            await PowerCmd.Apply<DiamondSwordPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+            await PowerCmd.Apply<DiamondSwordPower>(Owner.Creature,
                 DynamicVars["Echoes"].BaseValue, Owner.Creature, this);
         }
 

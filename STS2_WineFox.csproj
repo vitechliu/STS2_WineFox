@@ -49,7 +49,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="$(RitsuLibDir)\STS2-RitsuLib.csproj"/>
+        <ProjectReference Include="$(RitsuLibDir)\STS2-RitsuLib.csproj">
+            <AdditionalProperties>Sts2ApiCompat=0.103.2</AdditionalProperties>
+        </ProjectReference>
     </ItemGroup>
 
     <Target Name="Copy Mod" AfterTargets="PostBuildEvent">

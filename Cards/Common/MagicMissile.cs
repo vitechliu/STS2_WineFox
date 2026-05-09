@@ -51,7 +51,7 @@ namespace STS2_WineFox.Cards.Common
                     this);
             }
 
-            await PowerCmd.Apply<ChantPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+            await PowerCmd.Apply<ChantPower>(Owner.Creature, 1m, Owner.Creature, this);
         }
 
         protected override void OnUpgrade()

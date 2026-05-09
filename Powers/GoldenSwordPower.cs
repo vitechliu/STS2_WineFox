@@ -19,7 +19,7 @@ namespace STS2_WineFox.Powers
         private bool _noEthereal;
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
-        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+        public override bool IsInstanced => true;
 
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.GoldenSwordPowerIcon);
@@ -94,7 +94,7 @@ namespace STS2_WineFox.Powers
         }
 
         public override Task BeforeSideTurnStart(
-            PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+            PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
         {
             if (side != Owner.Side) return Task.CompletedTask;
 
@@ -105,7 +105,7 @@ namespace STS2_WineFox.Powers
             return Task.CompletedTask;
         }
 
-        public override Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
+        public override Task AfterCardGeneratedForCombat(CardModel card, bool addedByPlayer)
         {
             if (_noEthereal) return Task.CompletedTask;
             if (card?.Owner?.Creature != Owner) return Task.CompletedTask;

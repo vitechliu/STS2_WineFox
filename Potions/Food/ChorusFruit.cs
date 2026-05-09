@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -24,7 +24,7 @@ namespace STS2_WineFox.Potions
         protected override async Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target)
         {
             await CreatureCmd.Heal(Owner.Creature, 4);
-            await PowerCmd.Apply<BufferPower>(choiceContext, Owner.Creature, 1, Owner.Creature, cardSource: null);
+            await PowerCmd.Apply<BufferPower>(Owner.Creature, 1, Owner.Creature, null);
         }
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>

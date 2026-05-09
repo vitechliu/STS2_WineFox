@@ -16,7 +16,7 @@ namespace STS2_WineFox.Cards
 
     public record CraftRecipe(
         Type ProductCardType,
-        Func<ICombatState, Player, CardModel> Factory,
+        Func<CombatState, Player, CardModel> Factory,
         params CraftCost[] Costs
     )
     {

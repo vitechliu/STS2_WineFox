@@ -20,9 +20,9 @@ namespace STS2_WineFox.Powers
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.MassProductionPowerIcon);
 
-        public override async Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
+        public override async Task AfterCardGeneratedForCombat(CardModel card, bool addedByPlayer)
         {
-            if (creator == null) return;
+            if (!addedByPlayer) return;
 
             if (card.IsClone) return;
 
@@ -57,7 +57,7 @@ namespace STS2_WineFox.Powers
                     combatState.RemoveCard(clone);
                     combatState.AddCard(clone, teammate.Player);
 
-                    var instance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, teammate.Player);
+                    var instance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, true);
 
                     if (LocalContext.IsMe(teammate))
                         CardCmd.PreviewCardPileAdd(instance);

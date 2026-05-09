@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using STS2_WineFox.Character;
@@ -19,7 +19,7 @@ namespace STS2_WineFox.Cards.Token.HellGift
             CardPlay play)
         {
             var multiplier = IsUpgraded ? 3m : 2m;
-            await PowerCmd.Apply<GoldenPickaxePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, multiplier, Owner.Creature, this);
+            await PowerCmd.Apply<GoldenPickaxePower>(Owner.Creature, multiplier, Owner.Creature, this);
         }
 
         protected override void OnUpgrade()

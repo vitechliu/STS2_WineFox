@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -30,7 +30,7 @@ namespace STS2_WineFox.Cards.Uncommon
             var stressPower = Owner.Creature.Powers.OfType<StressPower>().FirstOrDefault(p => p.Amount > 0);
             if (stressPower != null)
             {
-                await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), stressPower, -1m, null, this);
+                await PowerCmd.ModifyAmount(stressPower, -1m, null, this);
                 await PlayerCmd.GainEnergy(DynamicVars["BonusEnergy"].BaseValue, Owner);
             }
         }

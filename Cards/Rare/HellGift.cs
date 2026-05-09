@@ -50,7 +50,7 @@ namespace STS2_WineFox.Cards.Rare
             if (IsUpgraded)
                 CardCmd.Upgrade(card);
 
-            var instance = await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, owner);
+            var instance = await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, true);
             CardCmd.PreviewCardPileAdd(instance);
         }
 

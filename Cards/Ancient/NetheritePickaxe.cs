@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using STS2_WineFox.Character;
@@ -25,7 +25,7 @@ namespace STS2_WineFox.Cards.Ancient
             if (creature == null)
                 return;
 
-            var appliedPower = await PowerCmd.Apply<NetheritePickaxePower>(new ThrowingPlayerChoiceContext(), creature, 1m, creature, this);
+            var appliedPower = await PowerCmd.Apply<NetheritePickaxePower>(creature, 1m, creature, this);
             if (appliedPower != null) appliedPower.ExcludeCard(this);
         }
 

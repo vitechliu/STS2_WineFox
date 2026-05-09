@@ -171,7 +171,7 @@ namespace STS2_WineFox.Relics
         }
 
         public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-            ICombatState combatState)
+            CombatState combatState)
         {
             _pendingEffectFlash = false;
             foreach (var effect in SophisticatedBackpackEffects.All)

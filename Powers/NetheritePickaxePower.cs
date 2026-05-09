@@ -22,7 +22,7 @@ namespace STS2_WineFox.Powers
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new("Threshold", 2m)];
 
-        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+        public override bool IsInstanced => true;
 
         public override int DisplayAmount
         {
@@ -48,7 +48,7 @@ namespace STS2_WineFox.Powers
         }
 
         public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-            ICombatState combatState)
+            CombatState combatState)
         {
             if (side != Owner.Side) return Task.CompletedTask;
             var d = GetInternalData<Data>();

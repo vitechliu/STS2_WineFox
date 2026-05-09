@@ -21,8 +21,8 @@ namespace STS2_WineFox.Powers
                 return;
 
             Flash();
-            await PowerCmd.Apply<IronPower>(new ThrowingPlayerChoiceContext(), Owner, 3m, Owner, evt.SourceCard);
-            await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), this, -1m, null, evt.SourceCard);
+            await PowerCmd.Apply<IronPower>(Owner, 3m, Owner, evt.SourceCard);
+            await PowerCmd.ModifyAmount(this, -1m, null, evt.SourceCard);
             if (Amount <= 0m)
                 await PowerCmd.Remove(this);
         }

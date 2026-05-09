@@ -25,7 +25,7 @@ namespace STS2_WineFox.Relics.Backpack.Effects
             SophisticatedBackpack backpack,
             PlayerChoiceContext choiceContext,
             CombatSide side,
-            ICombatState combatState)
+            CombatState combatState)
         {
             return Task.CompletedTask;
         }

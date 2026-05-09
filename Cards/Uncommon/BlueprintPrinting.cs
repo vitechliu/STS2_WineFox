@@ -69,7 +69,7 @@ namespace STS2_WineFox.Cards.Uncommon
 
                 clone.EnergyCost.AddThisCombat(-1);
 
-                var cardInstance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, selected.Owner);
+                var cardInstance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, true);
 
                 CardCmd.PreviewCardPileAdd(cardInstance);
             }

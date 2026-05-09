@@ -19,9 +19,9 @@ namespace STS2_WineFox.Cards.Rare
             Const.Paths.CardWirelessTerminal,
             FrameMaterialPath: Const.Paths.CardWirelessTerminalRainbowFrameMat);
 
-        protected override PileType GetResultPileTypeForCardPlay()
+        protected override PileType GetResultPileType()
         {
-            var result = base.GetResultPileTypeForCardPlay();
+            var result = base.GetResultPileType();
             return result != PileType.Discard ? result : PileType.Hand;
         }
 

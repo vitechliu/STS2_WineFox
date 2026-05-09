@@ -25,12 +25,12 @@ namespace STS2_WineFox.Relics.Backpack.Effects
             SophisticatedBackpack backpack,
             PlayerChoiceContext choiceContext,
             CombatSide side,
-            ICombatState combatState)
+            CombatState combatState)
         {
             if (side != backpack.Owner.Creature.Side) return;
 
             backpack.NotifyBackpackEffectTriggered();
-            await PowerCmd.Apply<RegenPower>(new ThrowingPlayerChoiceContext(), backpack.Owner.Creature,
+            await PowerCmd.Apply<RegenPower>(backpack.Owner.Creature,
                 backpack.DynamicVars[RegenVar].BaseValue,
                 backpack.Owner.Creature,
                 null);

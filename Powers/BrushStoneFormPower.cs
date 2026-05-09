@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,7 +19,7 @@ namespace STS2_WineFox.Powers
 
         public override int DisplayAmount => Amount + GetInternalData<Data>().Amount;
 
-        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+        public override bool IsInstanced => true;
 
         protected override object InitInternalData()
         {
@@ -39,7 +39,7 @@ namespace STS2_WineFox.Powers
 
             var data = GetInternalData<Data>();
             var amount = Amount + data.Amount;
-            await PowerCmd.Apply<StonePower>(new ThrowingPlayerChoiceContext(), Owner, amount, Owner, null);
+            await PowerCmd.Apply<StonePower>(Owner, amount, Owner, null);
             data.Amount += data.Increment;
             InvokeDisplayAmountChanged();
         }

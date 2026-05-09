@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -26,9 +26,9 @@ namespace STS2_WineFox.Potions
         protected override async Task OnUseInCombat(PlayerChoiceContext choiceContext, Creature? target)
         {
             await CreatureCmd.Heal(Owner.Creature, 4);
-            await PowerCmd.Apply<RegenPower>(choiceContext, Owner.Creature, 12, Owner.Creature, cardSource: null);
+            await PowerCmd.Apply<RegenPower>(Owner.Creature, 12, Owner.Creature, null);
             await CreatureCmd.GainBlock(Owner.Creature, 15, ValueProp.Unpowered, cardPlay: null);
-            await PowerCmd.Apply<HpLossReductionPower>(choiceContext, Owner.Creature, 2, Owner.Creature, cardSource: null);
+            await PowerCmd.Apply<HpLossReductionPower>(Owner.Creature, 2, Owner.Creature, null);
         }
 
         protected override Task OnUseOutOfCombat(PlayerChoiceContext choiceContext) =>

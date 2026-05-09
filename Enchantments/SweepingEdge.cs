@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using STS2_WineFox.Character;
@@ -24,7 +25,7 @@ namespace STS2_WineFox.Enchantments
             return cardType == CardType.Attack;
         }
 
-        public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+        public override async Task AfterAttack(AttackCommand command)
         {
             if (_isSweeping || Card is null) return;
             if (!IsAttackFromEnchantedCard(command)) return;
@@ -37,31 +38,29 @@ namespace STS2_WineFox.Enchantments
             var opponents = combatState.GetOpponentsOf(ownerCreature).Where(enemy => enemy.IsAlive).ToList();
             if (opponents.Count == 0) return;
 
-            foreach (var hitResults in command.Results)
+            foreach (var result in command.Results)
             {
-                foreach (var result in hitResults)
+                var receiver = result.Receiver;
+                var resultDamage = result.TotalDamage + result.OverkillDamage;
+                if (resultDamage <= 0) continue;
+
+                var sweepDamage = Math.Ceiling(resultDamage * 0.5m);
+                if (sweepDamage <= 0m) continue;
+
+                foreach (var enemy in opponents)
                 {
-                    var receiver = result.Receiver;
-                    var resultDamage = result.TotalDamage + result.OverkillDamage;
-                    if (resultDamage <= 0) continue;
+                    if (enemy == receiver) continue;
 
-                    var sweepDamage = Math.Ceiling(resultDamage * 0.5m);
-                    if (sweepDamage <= 0m) continue;
-
-                    foreach (var enemy in opponents)
-                    {
-                        if (enemy == receiver) continue;
-
-                        if (pendingSweepDamage.TryGetValue(enemy, out var existingDamage))
-                            pendingSweepDamage[enemy] = existingDamage + sweepDamage;
-                        else
-                            pendingSweepDamage[enemy] = sweepDamage;
-                    }
+                    if (pendingSweepDamage.TryGetValue(enemy, out var existingDamage))
+                        pendingSweepDamage[enemy] = existingDamage + sweepDamage;
+                    else
+                        pendingSweepDamage[enemy] = sweepDamage;
                 }
             }
 
             if (pendingSweepDamage.Count == 0) return;
 
+            var choiceContext = new ThrowingPlayerChoiceContext();
             _isSweeping = true;
             try
             {

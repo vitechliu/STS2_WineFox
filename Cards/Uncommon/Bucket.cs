@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -41,13 +41,13 @@ namespace STS2_WineFox.Cards.Uncommon
 
             await CreatureCmd.GainBlock(creature, blockAmount, play);
 
-            await PowerCmd.Apply<BlockNextTurnPower>(new ThrowingPlayerChoiceContext(), creature, blockAmount.BaseValue, creature, this);
+            await PowerCmd.Apply<BlockNextTurnPower>(creature, blockAmount.BaseValue, creature, this);
 
             foreach (var ally in combatState.GetTeammatesOf(creature).Where(c => c.IsAlive))
-                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), ally, weakAmount, creature, this);
+                await PowerCmd.Apply<WeakPower>(ally, weakAmount, creature, this);
 
             foreach (var enemy in combatState.Enemies.Where(e => e.IsAlive))
-                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), enemy, weakAmount, creature, this);
+                await PowerCmd.Apply<WeakPower>(enemy, weakAmount, creature, this);
         }
 
         protected override void OnUpgrade()

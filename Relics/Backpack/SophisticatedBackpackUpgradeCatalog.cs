@@ -11,7 +11,7 @@ namespace STS2_WineFox.Relics.Backpack
 {
     public sealed record SophisticatedBackpackUpgradeDefinition(
         Type ProductCardType,
-        Func<ICombatState, Player, CardModel> Factory,
+        Func<CombatState, Player, CardModel> Factory,
         IReadOnlyList<CraftCost> Costs)
     {
         public CraftDeliveryMode DeliveryMode { get; init; } = CraftDeliveryMode.ImmediateEffect;

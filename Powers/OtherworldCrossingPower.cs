@@ -24,8 +24,8 @@ namespace STS2_WineFox.Powers
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.OtherworldCrossingPowerIcon);
 
-        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-        
+        public override bool IsInstanced => true;
+
         protected override async Task OnAfterPlayerTurnStart(
             PlayerChoiceContext choiceContext, Player player)
         {
@@ -47,7 +47,7 @@ namespace STS2_WineFox.Powers
             clone.AddKeyword(CardKeyword.Ethereal);
             clone.AddKeyword(CardKeyword.Exhaust);
 
-            var cardInstance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, player);
+            var cardInstance = await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, true);
             CardCmd.PreviewCardPileAdd(cardInstance);
         }
     }

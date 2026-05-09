@@ -62,7 +62,7 @@ namespace STS2_WineFox.Cards.Uncommon
                     this);
             }
 
-            await PowerCmd.Apply<ChantPower>(choiceContext, owner, DynamicVars["ChantPower"].BaseValue, owner, this);
+            await PowerCmd.Apply<ChantPower>(owner, DynamicVars["ChantPower"].BaseValue, owner, this);
         }
 
         protected override void OnUpgrade()

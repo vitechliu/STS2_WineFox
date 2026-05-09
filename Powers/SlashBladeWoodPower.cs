@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +21,7 @@ namespace STS2_WineFox.Powers
             if (cardPlay.Card.Type != CardType.Skill) return;
 
             Flash();
-            await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner, null);
+            await PowerCmd.Apply<VigorPower>(Owner, Amount, Owner, null);
         }
     }
 }

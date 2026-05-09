@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -27,7 +27,7 @@ namespace STS2_WineFox.Cards.Uncommon
             PlayerChoiceContext choiceContext,
             CardPlay play)
         {
-            await PowerCmd.Apply<SlashBladeWoodPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+            await PowerCmd.Apply<SlashBladeWoodPower>(Owner.Creature,
                 DynamicVars["SlashBladeWoodPower"].BaseValue,
                 Owner.Creature,
                 this);

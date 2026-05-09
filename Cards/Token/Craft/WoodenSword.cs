@@ -35,7 +35,7 @@ namespace STS2_WineFox.Cards.Token.Craft
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);
 
-            await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+            await PowerCmd.Apply<VigorPower>(Owner.Creature,
                 DynamicVars["Vigorous"].BaseValue, Owner.Creature, this);
         }
 

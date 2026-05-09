@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -27,11 +27,11 @@ namespace STS2_WineFox.Powers
             for (var i = 0; i < Amount; i++)
             {
                 var dazedCard = CombatState.CreateCard<Dazed>(player);
-                var cardInstance = await CardPileCmd.AddGeneratedCardToCombat(dazedCard, PileType.Hand, player);
+                var cardInstance = await CardPileCmd.AddGeneratedCardToCombat(dazedCard, PileType.Hand, true);
                 CardCmd.PreviewCardPileAdd(cardInstance);
             }
 
-            if (Amount < 10) await PowerCmd.Apply<RadiationLeakPower>(new ThrowingPlayerChoiceContext(), Owner, 1m, Owner, null);
+            if (Amount < 10) await PowerCmd.Apply<RadiationLeakPower>(Owner, 1m, Owner, null);
         }
     }
 }

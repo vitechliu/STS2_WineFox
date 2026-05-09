@@ -53,7 +53,7 @@ namespace STS2_WineFox.Cards.Common
             
             var blockToGain = WineFoxCardVarFactory.ChantScaledAmount(this, "Block");
 
-            await PowerCmd.Apply<ChantPower>(choiceContext, owner, DynamicVars["ChantPower"].BaseValue, owner, this);
+            await PowerCmd.Apply<ChantPower>(owner, DynamicVars["ChantPower"].BaseValue, owner, this);
             await CreatureCmd.GainBlock(owner, blockToGain, ValueProp.Move, play);
         }
 

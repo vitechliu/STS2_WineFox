@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using STS2_WineFox.Character;
 using STS2RitsuLib.Patching.Models;
 
@@ -95,7 +96,7 @@ namespace STS2_WineFox.Patches
 
         public static void TryPlayHitFlash(Creature creature)
         {
-            var creatureNode = creature.GetCreatureNode();
+            var creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);
             if (creatureNode?.Visuals == null || !GodotObject.IsInstanceValid(creatureNode.Visuals))
                 return;
 

@@ -46,9 +46,7 @@ namespace STS2_WineFox.Cards.Uncommon
             if (owner.CombatState is not { } combatState) return;
 
             var stacks = WineFoxCardVarFactory.ChantScaledAmount(this, "Stacks");
-            await PowerCmd.Apply<DemisePower>(
-                new ThrowingPlayerChoiceContext(),
-                play.Target,
+            await PowerCmd.Apply<DemisePower>(play.Target,
                 stacks,
                 owner,
                 this);
@@ -67,7 +65,7 @@ namespace STS2_WineFox.Cards.Uncommon
                     this);
             }
 
-            await PowerCmd.Apply<ChantPower>(choiceContext, owner, DynamicVars["ChantPower"].BaseValue, owner, this);
+            await PowerCmd.Apply<ChantPower>(owner, DynamicVars["ChantPower"].BaseValue, owner, this);
         }
 
         protected override void OnUpgrade()

@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -31,8 +31,8 @@ namespace STS2_WineFox.Cards.Rare
         {
             DynamicVars.Energy.BaseValue = DynamicVars["EasyPeasy"].BaseValue;
 
-            await PowerCmd.Apply<EasyPeasyPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["EasyPeasy"].BaseValue, Owner.Creature, this);
-            await PowerCmd.Apply<RadiationLeakPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["RadiationLeak"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<EasyPeasyPower>(Owner.Creature, DynamicVars["EasyPeasy"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<RadiationLeakPower>(Owner.Creature, DynamicVars["RadiationLeak"].BaseValue, Owner.Creature, this);
         }
 
         protected override void OnUpgrade()

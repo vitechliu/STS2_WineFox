@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -28,7 +28,7 @@ namespace STS2_WineFox.Cards.Uncommon
         {
             var owner = Owner;
 
-            await PowerCmd.Apply<ProductionDocumentPower>(new ThrowingPlayerChoiceContext(), owner.Creature,
+            await PowerCmd.Apply<ProductionDocumentPower>(owner.Creature,
                 IsUpgraded ? 3m : 2m,
                 owner.Creature,
                 this);
