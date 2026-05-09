@@ -55,6 +55,8 @@ namespace STS2_WineFox
             public const string MaidBackpackRelicIcon = Root + "/relics/relic_maid_backpack.png";
             public const string SophisticatedBackpack = Root + "/relics/relic_sophisticated_backpack.png";
             public const string TotemofUndyingRelicIcon = Root + "/relics/relic_totem_of_undying.png";
+            public const string CreativeMotorRelicIcon = Root + "/relics/relic_creative_motor.png";
+            public const string OrangeTigerCakeRelicIcon = Root + "/relics/relic_orange_tiger_cake.png";
 
             //Power
             public const string WoodPowerIcon = Root + "/powers/wood_power.png";
