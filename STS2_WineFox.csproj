@@ -9,10 +9,16 @@
         <EnableDynamicLoading>true</EnableDynamicLoading>
         <NoWarn>CS0436</NoWarn>
     </PropertyGroup>
-
+    <PropertyGroup>
+        <IsWindows>false</IsWindows>
+        <IsOSX>false</IsOSX>
+        <IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</IsWindows>
+        <IsOSX Condition="$([MSBuild]::IsOSPlatform('OSX'))">true</IsOSX>
+    </PropertyGroup>
     <PropertyGroup>
         <GodotExportPreset>BasicExport</GodotExportPreset>
         <ModOutputDir>$(Sts2Dir)\mods\$(MSBuildProjectName)\</ModOutputDir>
+        <ModOutputDir Condition="'$(IsOSX)' == 'true'">$(Sts2Dir)\MacOS\mods\$(MSBuildProjectName)\</ModOutputDir>
         <ModPckPath>$(ModOutputDir)$(MSBuildProjectName).pck</ModPckPath>
     </PropertyGroup>
 
