@@ -14,3 +14,5 @@ local.props
 godot.log
 /FMOD/Build
 *.cache
+.DS_Store
+AGENTS.md
