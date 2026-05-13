@@ -13,7 +13,7 @@
     <PropertyGroup>
         <GodotExportPreset>BasicExport</GodotExportPreset>
         <ModOutputDir>$(Sts2Dir)\mods\$(MSBuildProjectName)\</ModOutputDir>
-        <ModOutputDir Condition="'$(IsOSX)' == 'true'">$(Sts2Dir)\SlayTheSpire2.app\Contents\MacOS\mods\$(MSBuildProjectName)\</ModOutputDir>
+        <ModOutputDir Condition="'$(IsOSX)' == 'true'">$(Sts2Dir)\MacOS\mods\$(MSBuildProjectName)\</ModOutputDir>
         <ModPckPath>$(ModOutputDir)$(MSBuildProjectName).pck</ModPckPath>
     </PropertyGroup>
 
