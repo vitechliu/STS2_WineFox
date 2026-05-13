@@ -1,5 +1,6 @@
 <Project Sdk="Godot.NET.Sdk/4.5.1">
     <Import Project=".\local.props" Condition="Exists('.\local.props')"/>
+    <Import Project="$(RitsuLibDir)\Sts2PathDiscovery.props" Condition="'$(RitsuLibDir)' != '' and Exists('$(RitsuLibDir)\Sts2PathDiscovery.props')"/>
     <PropertyGroup>
         <RootNamespace>STS2_WineFox</RootNamespace>
         <TargetFramework>net9.0</TargetFramework>
@@ -10,15 +11,9 @@
         <NoWarn>CS0436</NoWarn>
     </PropertyGroup>
     <PropertyGroup>
-        <IsWindows>false</IsWindows>
-        <IsOSX>false</IsOSX>
-        <IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</IsWindows>
-        <IsOSX Condition="$([MSBuild]::IsOSPlatform('OSX'))">true</IsOSX>
-    </PropertyGroup>
-    <PropertyGroup>
         <GodotExportPreset>BasicExport</GodotExportPreset>
         <ModOutputDir>$(Sts2Dir)\mods\$(MSBuildProjectName)\</ModOutputDir>
-        <ModOutputDir Condition="'$(IsOSX)' == 'true'">$(Sts2Dir)\MacOS\mods\$(MSBuildProjectName)\</ModOutputDir>
+        <ModOutputDir Condition="'$(IsOSX)' == 'true'">$(Sts2Dir)\SlayTheSpire2.app\Contents\MacOS\mods\$(MSBuildProjectName)\</ModOutputDir>
         <ModPckPath>$(ModOutputDir)$(MSBuildProjectName).pck</ModPckPath>
     </PropertyGroup>
 

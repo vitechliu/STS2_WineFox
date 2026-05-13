@@ -1,8 +1,12 @@
 <Project>
+    <!--
+      Optional. If Sts2Dir is omitted, Sts2PathDiscovery.props (from RitsuLibDir) resolves it per OS.
+    -->
     <PropertyGroup>
         <Sts2Dir>Path\To\SteamLibrary\steamapps\common\Slay the Spire 2</Sts2Dir>
-        <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
+        <!-- Optional: override managed data folder (default is OS-specific under Sts2Dir) -->
+        <!-- <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir> -->
         <GodotExe>Path\To\Godot\Godot_version-stable_mono_win64.exe</GodotExe>
-        <RitsuLibDir>STS2_RitsuLib\</RitsuLibDir>
+        <RitsuLibDir>STS2-RitsuLib\</RitsuLibDir>
     </PropertyGroup>
 </Project>
