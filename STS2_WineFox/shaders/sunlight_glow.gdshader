@@ -1,7 +1,7 @@
 shader_type canvas_item;
+render_mode blend_add;
 
-// 太阳光晕后处理效果（强烈、动态、可调整）
-uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+// 太阳光晕透明叠加效果（强烈、动态、可调整）
 
 // 光源位置（默认中上方）
 uniform vec2 light_position = vec2(0.5, 0.25);
@@ -57,7 +57,6 @@ float star_flare(vec2 uv, vec2 center, float arms, float rotation, float sharpne
 
 void fragment() {
     vec2 uv = UV;
-    vec2 screen_uv = SCREEN_UV;
     
     // 计算到光源的距离和方向
     vec2 to_light = uv - light_position;
@@ -75,26 +74,14 @@ void fragment() {
     float glow = pow(smoothstep(glow_radius, 0.0, dist), glow_falloff) * glow_intensity * pulse;
     
     // ============================================
-    // 2. 色散效果 (Chromatic Aberration)
-    // ============================================
-    vec2 dispersion_dir = normalize(to_light + 0.001);
-    float dispersion_strength = chromatic_aberration * glow * 0.5;
-    
-    vec4 tex_r = texture(screen_texture, screen_uv + dispersion_dir * dispersion_strength);
-    vec4 tex_g = texture(screen_texture, screen_uv);
-    vec4 tex_b = texture(screen_texture, screen_uv - dispersion_dir * dispersion_strength);
-    
-    vec3 original = vec3(tex_r.r, tex_g.g, tex_b.b);
-    
-    // ============================================
-    // 3. 彩虹圈 (Rainbow Ring)
+    // 2. 彩虹圈 (Rainbow Ring)
     // ============================================
     float rainbow_ring = smoothstep(glow_radius * 0.8, glow_radius * 0.6, dist) 
                         * smoothstep(glow_radius * 0.3, glow_radius * 0.5, dist);
     vec3 rainbow = rainbow_color(dist, angle, t) * rainbow_ring * rainbow_intensity * pulse;
     
     // ============================================
-    // 4. 动态光斑 (Lens Flares)
+    // 3. 动态光斑 (Lens Flares)
     // ============================================
     float flares = 0.0;
     for (float i = 1.0; i <= 6.0; i += 1.0) {
@@ -107,7 +94,7 @@ void fragment() {
     }
     
     // ============================================
-    // 5. 光束 (God Rays)
+    // 4. 光束 (God Rays)
     // ============================================
     float rays = 0.0;
     for (float i = 0.0; i < 3.0; i += 1.0) {
@@ -119,32 +106,27 @@ void fragment() {
     }
     
     // ============================================
-    // 6. 合成
+    // 5. 合成透明叠加
     // ============================================
-    // 基础颜色 + 光晕提亮
-    vec3 final_color = original;
-    
     // 核心太阳（极亮）
     vec3 sun_color = vec3(1.0, 0.95, 0.8);
-    final_color += sun_color * core * glow_intensity * 2.0;
+    vec3 light_color = sun_color * core * glow_intensity * 2.0;
     
     // 光晕层
-    final_color += sun_color * glow * 0.5;
+    light_color += sun_color * glow * 0.5;
     
     // 彩虹
-    final_color += rainbow;
+    light_color += rainbow;
     
     // 光斑
-    final_color += vec3(1.0, 0.9, 0.7) * flares;
+    light_color += vec3(1.0, 0.9, 0.7) * flares;
     
     // 光束
-    final_color += sun_color * rays * 0.3;
+    light_color += sun_color * rays * 0.3;
+
+    float total_light = core + glow + flares + rays * 0.5 + rainbow_ring * rainbow_intensity;
+    float alpha = clamp(total_light, 0.0, 1.0);
+    light_color *= 1.0 + chromatic_aberration * 4.0;
     
-    // 整体暖色调微调（只在光晕区域）
-    float total_light = glow + flares + rays * 0.5;
-    vec3 warm_tint = mix(vec3(1.0), vec3(1.05, 1.0, 0.9), clamp(total_light, 0.0, 1.0));
-    final_color *= warm_tint;
-    
-    // 输出
-    COLOR = vec4(final_color, 1.0);
+    COLOR = vec4(light_color, alpha);
 }
