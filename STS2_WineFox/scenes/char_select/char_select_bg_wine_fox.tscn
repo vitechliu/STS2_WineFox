@@ -1,63 +1,52 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6rw7txbr6pl4"]
+[gd_scene load_steps=10 format=3 uid="uid://c6rw7txbr6pl4"]
 
 [ext_resource type="SpineSkeletonDataResource" uid="uid://curh1aldwhahw" path="res://STS2_WineFox/scenes/char_select/char_select_bg_wine_fox.tres" id="2_4f6ch"]
 [ext_resource type="Script" uid="uid://brfjr1drkdvsh" path="res://Patches/SpineAutoPlayer.cs" id="3_vso88"]
-[ext_resource type="Texture2D" uid="uid://blmmy31l0cb56" path="res://STS2_WineFox/scenes/char_select/sakura2.png" id="4_sakura"]
-[ext_resource type="Shader" uid="uid://drl254hgi6bbt" path="res://STS2_WineFox/shaders/sakura_petal.gdshader" id="5_sakura_shader"]
+[ext_resource type="Texture2D" uid="uid://djuhwrcr6cgtq" path="res://STS2_WineFox/scenes/char_select/sakura.png" id="4_4m41m"]
 [ext_resource type="Shader" uid="uid://6ww4w3bhsllj" path="res://STS2_WineFox/shaders/sunlight_glow.gdshader" id="6_sunlight_shader"]
 [ext_resource type="Script" uid="uid://kr3o7m2v5oii" path="res://Scripts/SakuraWindController.cs" id="7_wind_ctrl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sakura"]
-shader = ExtResource("5_sakura_shader")
-shader_parameter/atlas_texture = ExtResource("4_sakura")
-shader_parameter/atlas_columns = 4
-shader_parameter/atlas_rows = 4
-shader_parameter/rotation_speed_min = 0.5
-shader_parameter/rotation_speed_max = 2.0
-shader_parameter/wobble_amplitude = 0.3
-shader_parameter/wobble_speed = 1.5
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_525j6"]
 
-[sub_resource type="Gradient" id="Gradient_83x1f"]
-colors = PackedColorArray(0.9950846, 0.81742287, 0.88564515, 1, 1, 1, 0.34509805, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_stv15"]
-gradient = SubResource("Gradient_83x1f")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m41m"]
+atlas = ExtResource("4_4m41m")
+region = Rect2(0, 0, 40, 40)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sakura"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(1000, 50, 0)
-angle_min = -180.0
-angle_max = 180.0
+angle_min = -70.99999
+angle_max = -9.399989
 direction = Vector3(0, 1, 0)
 spread = 12.493
 initial_velocity_min = 550.72
 initial_velocity_max = 666.67
+angular_velocity_min = -172.86002
+angular_velocity_max = 152.18999
 orbit_velocity_min = -0.049999908
 orbit_velocity_max = 0.050000098
 radial_velocity_min = -102.77002
 radial_velocity_max = 756.25995
 gravity = Vector3(0, 220, 0)
-scale_min = 0.03
-scale_max = 0.07
-color = Color(1, 0.92, 0.95, 0.85)
-color_initial_ramp = SubResource("GradientTexture1D_stv15")
+scale_min = 0.7
+color = Color(1.177704, 1.0860615, 1.1181365, 0.8509804)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sunlight"]
 shader = ExtResource("6_sunlight_shader")
 shader_parameter/light_position = Vector2(0.53, 0.04)
-shader_parameter/glow_intensity = 0.5730000272175
-shader_parameter/glow_radius = 1.01200004481012
-shader_parameter/glow_falloff = 2.0
-shader_parameter/chromatic_aberration = 0.02700000128249999
-shader_parameter/rainbow_intensity = 0.38
-shader_parameter/rainbow_scale = 1.86400004104
-shader_parameter/rainbow_speed = 0.2690000127775
-shader_parameter/flare_intensity = 0.95
+shader_parameter/glow_intensity = 0.442000020995
+shader_parameter/glow_radius = 1.2390000555926202
+shader_parameter/glow_falloff = 3.0170001195575002
+shader_parameter/chromatic_aberration = 0.0430000020425
+shader_parameter/rainbow_intensity = 0.2950000140125
+shader_parameter/rainbow_scale = 1.410000019475
+shader_parameter/rainbow_speed = 0.15200000722
+shader_parameter/flare_intensity = 0.2850000135375
 shader_parameter/flare_count = 6.0
 shader_parameter/flare_speed = 0.2
-shader_parameter/ray_intensity = 0.65
-shader_parameter/ray_count = 5.0
+shader_parameter/ray_intensity = 0.4130000196175
+shader_parameter/ray_count = 3.8150000387125003
 shader_parameter/ray_speed = 0.15
 shader_parameter/ray_width = 0.085
 shader_parameter/time_scale = 0.5
@@ -92,10 +81,11 @@ script = ExtResource("3_vso88")
 
 [node name="SakuraParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_sakura")
+material = SubResource("CanvasItemMaterial_525j6")
+use_parent_material = true
 position = Vector2(960, -50)
 amount = 15
-texture = ExtResource("4_sakura")
+texture = SubResource("AtlasTexture_4m41m")
 lifetime = 2.49
 preprocess = 4.0
 speed_scale = 0.8
