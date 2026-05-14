@@ -137,10 +137,10 @@
   "STS2_WINE_FOX_POWER_HP_LOSS_REDUCTION_POWER.title": "附魔金苹果",
   "STS2_WINE_FOX_POWER_HP_LOSS_REDUCTION_POWER.description": "你每次失去生命时，减少失去的生命值[blue]{Amount}[/blue]点。",
   "STS2_WINE_FOX_POWER_HP_LOSS_REDUCTION_POWER.smartDescription": "你每次失去生命时，减少失去的生命值[blue]{Amount}[/blue]点。",
-  "STS2_WINE_FOX_POWER_CHANT_POWER.title": "吟唱",
+  "STS2_WINE_FOX_POWER_CHANT_POWER.title": "咏唱",
   "STS2_WINE_FOX_POWER_CHANT_POWER.description": "本回合内，增加带有咏唱的牌部分效果数值",
   "STS2_WINE_FOX_POWER_CHANT_POWER.smartDescription": "本回合内，{Amount:cond:<0?减少|增加}带有咏唱的牌部分效果数值[blue]{Amount:abs()}[/blue]点。",
   "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.title": "心胜于物",
-  "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.description": "每当你获得[gold]吟唱[/gold]时，额外获得1层[gold]吟唱[/gold]。",
-  "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.smartDescription": "每当你获得[gold]吟唱[/gold]时，额外获得1层[gold]吟唱[/gold]。"
+  "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.description": "每当你获得[gold]咏唱[/gold]时，额外获得1层[gold]咏唱[/gold]。",
+  "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.smartDescription": "每当你获得[gold]咏唱[/gold]时，额外获得1层[gold]咏唱[/gold]。"
 }
