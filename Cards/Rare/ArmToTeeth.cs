@@ -26,7 +26,9 @@ namespace STS2_WineFox.Cards.Rare
             PlayerChoiceContext choiceContext,
             CardPlay play)
         {
-            await PowerCmd.Apply<ArmToTeethPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1m, Owner.Creature, this);
+            var currentMultiplier = Owner.Creature.GetPowerAmount<ArmToTeethPower>();
+            var amountToApply = currentMultiplier > 0m ? 1m : 2m;
+            await PowerCmd.Apply<ArmToTeethPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, amountToApply, Owner.Creature, this);
         }
 
         protected override void OnUpgrade()
