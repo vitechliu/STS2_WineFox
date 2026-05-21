@@ -12,7 +12,9 @@ namespace STS2_WineFox.Powers
 {
     [RegisterPower]
     public class ChantPower : WineFoxPower, IMagicDamageModifier
-    {       
+    {
+        private bool _gainedThisTurn = true;
+
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -30,11 +32,44 @@ namespace STS2_WineFox.Powers
             return Amount;
         }
 
+        public override Task BeforeApplied(Creature target, decimal amount, Creature? applier, CardModel? cardSource)
+        {
+            if (target == Owner && amount > 0m)
+                _gainedThisTurn = true;
+
+            return Task.CompletedTask;
+        }
+
+        public override Task BeforeSideTurnStart(
+            PlayerChoiceContext choiceContext,
+            CombatSide side,
+            ICombatState combatState)
+        {
+            if (side == Owner.Side)
+                _gainedThisTurn = false;
+
+            return Task.CompletedTask;
+        }
+
+        public override Task AfterPowerAmountChanged(
+            PlayerChoiceContext choiceContext,
+            PowerModel power,
+            decimal amount,
+            Creature? applier,
+            CardModel? cardSource)
+        {
+            if (power == this && amount > 0m)
+                _gainedThisTurn = true;
+
+            return Task.CompletedTask;
+        }
+
         public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
         {
             if (side != Owner.Side) return;
 
-            if (Owner.GetPowerAmount<EternalMelodyRetentionPower>() > 0m && Amount > 0m)
+
+            if (_gainedThisTurn)
                 return;
 
             await PowerCmd.Remove(this);

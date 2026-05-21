@@ -32,6 +32,9 @@ namespace STS2_WineFox.Cards.Common
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];
 
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
+        
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardBarrierWave);
 
         protected override async Task OnPlay(

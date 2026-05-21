@@ -23,6 +23,9 @@ namespace STS2_WineFox.Cards.Rare
             HoverTipFactory.FromPower<DexterityPower>(),
         ];
 
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
+        
         protected override async Task OnPlay(
             PlayerChoiceContext choiceContext,
             CardPlay play)

@@ -25,7 +25,7 @@ namespace STS2_WineFox.Powers
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.OtherworldCrossingPowerIcon);
 
         public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-        
+
         protected override async Task OnAfterPlayerTurnStart(
             PlayerChoiceContext choiceContext, Player player)
         {
@@ -34,7 +34,7 @@ namespace STS2_WineFox.Powers
             if (PileType.Hand.GetPile(player).Cards.Count == 0) return;
 
             Flash();
-            
+
             var prompt = new LocString("cards", "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE");
             var prefs = new CardSelectorPrefs(prompt, 1, 1);
 
@@ -52,4 +52,3 @@ namespace STS2_WineFox.Powers
         }
     }
 }
-

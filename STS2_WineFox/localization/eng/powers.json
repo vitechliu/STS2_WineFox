@@ -138,8 +138,8 @@
   "STS2_WINE_FOX_POWER_HOARDING_HABIT_POWER.description": "At the start of next turn, gain 1 [gold]Plank[/gold] and 1 [gold]Cobblestone[/gold].",
   "STS2_WINE_FOX_POWER_HOARDING_HABIT_POWER.smartDescription": "At the start of next turn, gain {Amount} [gold]Plank[/gold] and {Amount} [gold]Cobblestone[/gold].",
   "STS2_WINE_FOX_POWER_CHANT_POWER.title": "Chant",
-  "STS2_WINE_FOX_POWER_CHANT_POWER.description": "This turn, modify parts of effects on cards with Chant.",
-  "STS2_WINE_FOX_POWER_CHANT_POWER.smartDescription": "This turn, {Amount:cond:<0?reduce|increase} parts of effects on cards with Chant by [blue]{Amount:abs()}[/blue].",
+  "STS2_WINE_FOX_POWER_CHANT_POWER.description": "Modify parts of effects on cards with [gold]Chant[/gold]. If you did not gain [gold]Chant[/gold] this turn, lose this effect at end of turn.",
+  "STS2_WINE_FOX_POWER_CHANT_POWER.smartDescription": "{Amount:cond:<0?Reduce|Increase} parts of effects on cards with [gold]Chant[/gold] by [blue]{Amount:abs()}[/blue]. If you did not gain [gold]Chant[/gold] this turn, lose this effect at end of turn.",
   "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.title": "Mind Over Matter",
   "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.description": "Whenever you gain [gold]Chant[/gold], gain [blue]1[/blue] additional [gold]Chant[/gold].",
   "STS2_WINE_FOX_POWER_SHARD_COPY_POWER.smartDescription": "Whenever you gain [gold]Chant[/gold], gain [blue]{Amount}[/blue] additional [gold]Chant[/gold].",
@@ -147,6 +147,6 @@
   "STS2_WINE_FOX_POWER_HP_LOSS_REDUCTION_POWER.description": "Whenever you would lose HP, lose [blue]{Amount}[/blue] less.",
   "STS2_WINE_FOX_POWER_HP_LOSS_REDUCTION_POWER.smartDescription": "Whenever you would lose HP, lose [blue]{Amount}[/blue] less.",
   "STS2_WINE_FOX_POWER_ETERNAL_MELODY_RETENTION_POWER.title": "Eternal Melody",
-  "STS2_WINE_FOX_POWER_ETERNAL_MELODY_RETENTION_POWER.description": "At end of your turn, do not lose [gold]Chant[/gold].",
-  "STS2_WINE_FOX_POWER_ETERNAL_MELODY_RETENTION_POWER.smartDescription": "At end of your turn, do not lose [gold]Chant[/gold]."
+  "STS2_WINE_FOX_POWER_ETERNAL_MELODY_RETENTION_POWER.description": "Next turn, all your [gold]Magic[/gold] cards gain [gold]Chant 1[/gold].",
+  "STS2_WINE_FOX_POWER_ETERNAL_MELODY_RETENTION_POWER.smartDescription": "Next {Amount} turn, all your [gold]Magic[/gold] cards gain [gold]Chant 1[/gold]."
 }

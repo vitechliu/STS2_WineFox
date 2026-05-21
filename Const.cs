@@ -111,7 +111,7 @@ namespace STS2_WineFox
             public const string ArmToTeethPowerIcon = Root + "/powers/arm_to_teeth_power.png";
             public const string EternalMelodyPowerIcon = Root + "/powers/eternal_melody_power.png";
 
-            
+
             public const string BurningIcon = Root + "/powers/burning_power.png";
 
             //Card
@@ -238,7 +238,7 @@ namespace STS2_WineFox
             public const string CardEssenceReconstruction = Root + "/cards/card_essence_reconstruction.png";
             public const string CardMagicOverloaded = Root + "/cards/card_magic_overloaded.png";
             public const string CardEternalMelody = Root + "/cards/card_eternal_melody.png";
-            
+
             //Enchantments
             public const string EnchantmentFireAspectIcon = Root + "/enchantments/fire_aspect_icon.png";
             public const string EnchantmentSweepingEdgeIcon = Root + "/enchantments/sweeping_edge_icon.png";
@@ -246,7 +246,7 @@ namespace STS2_WineFox
             //FMOD BANK
             public const string WineFoxBank = Root + "/sfx/characters/WineFox.bank";
             public const string WineFoxGuidsFile = Root + "/sfx/characters/WineFox.guids.txt";
-            
+
             //Food
             public const string Apple = Root + "/potions/foods/apple.png";
             public const string GoldenApple = Root + "/potions/foods/golden_apple.png";

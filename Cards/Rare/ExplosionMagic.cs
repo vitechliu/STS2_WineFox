@@ -33,6 +33,9 @@ namespace STS2_WineFox.Cards.Rare
             HoverTipFactory.FromPower<ChantPower>(),
         ];
 
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
+        
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardExplosionMagic);
 
         protected override async Task OnPlay(

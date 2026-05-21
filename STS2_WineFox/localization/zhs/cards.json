@@ -257,5 +257,5 @@
   "STS2_WINE_FOX_CARD_SWEEP.description": "对所有敌人造成{Damage:diff()}点伤害。如果你没有格挡，额外造成一次伤害。",
 
   "STS2_WINE_FOX_CARD_ETERNAL_MELODY.title": "永恒旋律",
-  "STS2_WINE_FOX_CARD_ETERNAL_MELODY.description": "保留你的[gold]咏唱[/gold]一回合。{IfUpgraded:show:获得1点[gold]咏唱[/gold]。|}"
+  "STS2_WINE_FOX_CARD_ETERNAL_MELODY.description": "下回合你的所有[gold]魔法[/gold]牌获得[gold]咏唱1[/gold]。{IfUpgraded:show:获得1点[gold]咏唱[/gold]。|}"
 }
