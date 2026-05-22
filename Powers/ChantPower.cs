@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using STS2_WineFox.Cards;
 using STS2_WineFox.Combat.Magic;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -11,7 +12,7 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace STS2_WineFox.Powers
 {
     [RegisterPower]
-    public class ChantPower : WineFoxPower, IMagicDamageModifier
+    public class ChantPower : WineFoxPower, IMagicDamageModifier, IMagicBlockModifier
     {
         private bool _gainedThisTurn = true;
 
@@ -32,6 +33,17 @@ namespace STS2_WineFox.Powers
             return Amount;
         }
 
+        public decimal ModifyMagicBlockAdditive(
+            Creature defender,
+            decimal baseAmount,
+            CardModel cardSource)
+        {
+            if (defender != Owner) return 0m;
+            if (!cardSource.IsMagic()) return 0m;
+
+            return Amount;
+        }
+
         public override Task BeforeApplied(Creature target, decimal amount, Creature? applier, CardModel? cardSource)
         {
             if (target == Owner && amount > 0m)
@@ -43,6 +55,7 @@ namespace STS2_WineFox.Powers
         public override Task BeforeSideTurnStart(
             PlayerChoiceContext choiceContext,
             CombatSide side,
+            IReadOnlyList<Creature> participants,
             ICombatState combatState)
         {
             if (side == Owner.Side)
@@ -64,7 +77,10 @@ namespace STS2_WineFox.Powers
             return Task.CompletedTask;
         }
 
-        public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+        public override async Task AfterSideTurnEnd(
+            PlayerChoiceContext choiceContext,
+            CombatSide side,
+            IEnumerable<Creature> participants)
         {
             if (side != Owner.Side) return;
 

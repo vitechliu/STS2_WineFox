@@ -1,5 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,42 +11,34 @@ namespace STS2_WineFox.Powers
     [RegisterPower]
     public class EternalMelodyRetentionPower : WineFoxPower
     {
-        private bool _isActiveTurn;
-
         public override PowerType Type => PowerType.Buff;
-        public override PowerStackType StackType => PowerStackType.Counter;
+        public override PowerStackType StackType => PowerStackType.None;
+        
+        public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.EternalMelodyPowerIcon);
 
-        public override Task BeforeSideTurnStart(
-            PlayerChoiceContext choiceContext,
-            CombatSide side,
-            ICombatState combatState)
+        public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            if (side == Owner.Side && Amount > 0m)
-                _isActiveTurn = true;
-
-            return Task.CompletedTask;
-        }
-
-        public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-        {
-            if (!_isActiveTurn) return;
             var card = cardPlay.Card;
             if (card.Owner.Creature != Owner) return;
             if (!card.IsMagic()) return;
+            if (Owner.CombatState is not { } combatState) return;
+            if (combatState.HittableEnemies.Count == 0) return;
+
+            var target = combatState.RunState.Rng.CombatTargets.NextItem(combatState.HittableEnemies);
+            if (target == null) return;
+
+            var threshold = Amount > 0m ? Amount : 2m;
+            var chant = Math.Max(0m, Owner.GetPowerAmount<ChantPower>());
+            var extraLoss = Math.Floor(chant / threshold) * 2m;
+            var totalLoss = 2m + extraLoss;
 
             Flash();
-            await PowerCmd.Apply<ChantPower>(new ThrowingPlayerChoiceContext(), Owner, 1m, Owner, card);
-        }
 
-        public override async Task AfterTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side)
-        {
-            if (side != Owner.Side || !_isActiveTurn)
-                return;
-
-            _isActiveTurn = false;
-            await PowerCmd.Decrement(this);
+            // Keep current HP anchored before max HP reduction as requested by design.
+            await CreatureCmd.SetCurrentHp(target, target.CurrentHp);
+            await CreatureCmd.LoseMaxHp(choiceContext, target, totalLoss, true);
         }
     }
 }

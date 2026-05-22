@@ -1,8 +1,10 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
+using STS2_WineFox.Cards;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -11,37 +13,45 @@ namespace STS2_WineFox.Powers
     [RegisterPower]
     public class ShardCopyPower : WineFoxPower
     {
-        private bool _reacting;
+        private bool _isActiveTurn;
 
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.ShardCopyPowerIcon);
 
-        public override async Task AfterPowerAmountChanged(
+        public override Task BeforeSideTurnStart(
             PlayerChoiceContext choiceContext,
-            PowerModel power,
-            decimal amount,
-            Creature? applier,
-            CardModel? cardSource)
+            CombatSide side,
+            IReadOnlyList<Creature> participants,
+            ICombatState combatState)
         {
-            if (_reacting) return;
-            if (power.Owner != Owner) return;
-            if (power is not ChantPower) return;
-            if (amount <= 0m) return;
+            if (side == Owner.Side && Amount > 0m)
+                _isActiveTurn = true;
 
-            var extraChant = Amount;
-            if (extraChant <= 0m) return;
+            return Task.CompletedTask;
+        }
 
-            _reacting = true;
-            try
-            {
-                Flash();
-                await PowerCmd.Apply<ChantPower>(new ThrowingPlayerChoiceContext(), Owner, extraChant, Owner, cardSource);
-            }
-            finally
-            {
-                _reacting = false;
-            }
+        public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+        {
+            if (!_isActiveTurn) return;
+            var card = cardPlay.Card;
+            if (card.Owner.Creature != Owner) return;
+            if (!card.IsMagic()) return;
+
+            Flash();
+            await PowerCmd.Apply<ChantPower>(new ThrowingPlayerChoiceContext(), Owner, 1m, Owner, card);
+        }
+
+        public override async Task AfterSideTurnEndLate(
+            PlayerChoiceContext choiceContext,
+            CombatSide side,
+            IEnumerable<Creature> participants)
+        {
+            if (side != Owner.Side || !_isActiveTurn)
+                return;
+
+            _isActiveTurn = false;
+            await PowerCmd.Decrement(this);
         }
     }
 }

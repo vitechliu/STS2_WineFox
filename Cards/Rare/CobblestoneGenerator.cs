@@ -16,6 +16,7 @@ namespace STS2_WineFox.Cards.Rare
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new("BrushStoneFormPower", 2m)];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Stone];
 

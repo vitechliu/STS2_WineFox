@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2_WineFox.Character;
+using STS2_WineFox.Combat.Magic;
 using STS2_WineFox.Powers;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -54,10 +55,10 @@ namespace STS2_WineFox.Cards.Common
                     owner,
                     this);
             
-            var blockToGain = WineFoxCardVarFactory.ChantScaledAmount(this, "Block");
+            var blockToGain = MagicBlock.Resolve(this, DynamicVars.Block.BaseValue);
 
             await PowerCmd.Apply<ChantPower>(choiceContext, owner, DynamicVars["ChantPower"].BaseValue, owner, this);
-            await CreatureCmd.GainBlock(owner, blockToGain, ValueProp.Move, play);
+            await CreatureCmd.GainBlock(owner, blockToGain, ValueProp.Move | ValueProp.Unpowered, play);
         }
 
         protected override void OnUpgrade()

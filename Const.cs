@@ -110,6 +110,7 @@ namespace STS2_WineFox
             public const string ShardCopyPowerIcon = Root + "/powers/shard_copy_power.png";
             public const string ArmToTeethPowerIcon = Root + "/powers/arm_to_teeth_power.png";
             public const string EternalMelodyPowerIcon = Root + "/powers/eternal_melody_power.png";
+            public const string MagicOverloadedPowerIcon = Root + "/powers/magic_overloaded_power.png";
 
 
             public const string BurningIcon = Root + "/powers/burning_power.png";
@@ -138,7 +139,7 @@ namespace STS2_WineFox
             public const string CardIronZombie = Root + "/cards/card_ironzombie.png";
             public const string CardCrushingWheel = Root + "/cards/card_crushingwheel.png";
             public const string CardEnmergencyRepair = Root + "/cards/card_enmergency_repair.png";
-            public const string CardLightAssault = Root + "/cards/card_test.png";
+            public const string CardLightAssault = Root + "/cards/card_light_assault.png";
             public const string CardEasyPeasy = Root + "/cards/card_easy_peasy.png";
             public const string CardAllItem = Root + "/cards/card_allitem.png";
             public const string CardAllItemUpgraded = Root + "/cards/card_allitem_upgraded.png";
