@@ -17,6 +17,9 @@ namespace STS2_WineFox.Cards.Uncommon
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];
+        
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
 
         protected override async Task OnPlay(
             PlayerChoiceContext choiceContext,

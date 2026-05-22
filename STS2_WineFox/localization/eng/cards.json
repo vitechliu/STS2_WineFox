@@ -212,7 +212,7 @@
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "Intermittent Chanting",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "Gain 1 [gold]Weak[/gold]. Whenever you cause an enemy to lose HP, that enemy gains [blue]1[/blue] Block and you gain [blue]{Block:diff()}[/blue] Block.",
   "STS2_WINE_FOX_CARD_SHARD_COPY.title": "Mind Over Matter",
-  "STS2_WINE_FOX_CARD_SHARD_COPY.description": "Next turn, all your [gold]Magic[/gold] cards gain [gold]Chant 1[/gold].",
+  "STS2_WINE_FOX_CARD_SHARD_COPY.description": "Whenever you play a [gold]Magic[/gold] card, gain [gold]Chant 1[/gold].",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.title": "Explosion Magic",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.description": "Apply [purple]{Burn:diff()}[/purple] [gold]Burning[/gold] to ALL enemies, repeated {Hits:diff()} times. Lose 3 [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_EROSION.title": "Erosion",

@@ -18,7 +18,7 @@ namespace STS2_WineFox.Powers
 
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.EternalMelodyPowerIcon);
 
-        public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             var card = cardPlay.Card;
             if (card.Owner.Creature != Owner) return;
