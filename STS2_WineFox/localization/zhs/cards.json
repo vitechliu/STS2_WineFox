@@ -206,7 +206,7 @@
   "STS2_WINE_FOX_CARD_SCRATCH.title": "抓挠",
   "STS2_WINE_FOX_CARD_SCRATCH.description": "造成{IfUpgraded:show:[blue]X+2[/blue]|[blue]X[/blue]}点伤害，共[blue]2X[/blue]次。{InCombat:\n（共造成{TotalDamage:diff()}点伤害）|}",
   "STS2_WINE_FOX_CARD_MAGIC_MISSILE.title": "魔法飞弹",
-  "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "使一名敌人失去[purple]{Damage:diff()}[/purple]点生命，共2次。\n获得{ChantPower:diff()}点[gold]咏唱[/gold]。",
+  "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "使一名敌人失去[purple]{Damage:diff()}[/purple]点生命，共3次。\n获得{ChantPower:diff()}点[gold]咏唱[/gold]。",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.title": "屏障波",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": "使所有敌人失去[purple]{Damage:diff()}[/purple]点生命。获得[purple]{ChantBlock:diff()}[/purple]点格挡。\n获得{ChantPower:diff()}点[gold]咏唱[/gold]。",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "间隙咏唱",

@@ -206,7 +206,7 @@
   "STS2_WINE_FOX_CARD_SCRATCH.title": "Scratch",
   "STS2_WINE_FOX_CARD_SCRATCH.description": "Deal [blue]X[/blue] damage [blue]2X[/blue] times.{IfUpgraded:show: (Upgraded: [blue]X+2[/blue] damage)|}{InCombat:\n(Deals {TotalDamage:diff()} damage total)|}",
   "STS2_WINE_FOX_CARD_MAGIC_MISSILE.title": "Magic Missile",
-  "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "Cause an enemy to lose [purple]{Damage:diff()}[/purple] HP twice.\nGain {ChantPower:diff()} [gold]Chant[/gold].",
+  "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "Cause an enemy to lose [purple]{Damage:diff()}[/purple] HP 3 times.\nGain {ChantPower:diff()} [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.title": "Barrier Wave",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": "Cause ALL enemies to lose [purple]{Damage:diff()}[/purple] HP. Gain [purple]{ChantBlock:diff()}[/purple] Block.\nGain {ChantPower:diff()} [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "Intermittent Chanting",

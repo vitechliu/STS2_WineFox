@@ -14,8 +14,6 @@ namespace STS2_WineFox.Powers
     [RegisterPower]
     public class ChantPower : WineFoxPower, IMagicDamageModifier, IMagicBlockModifier
     {
-        private bool _gainedThisTurn = true;
-
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -46,9 +44,6 @@ namespace STS2_WineFox.Powers
 
         public override Task BeforeApplied(Creature target, decimal amount, Creature? applier, CardModel? cardSource)
         {
-            if (target == Owner && amount > 0m)
-                _gainedThisTurn = true;
-
             return Task.CompletedTask;
         }
 
@@ -58,9 +53,6 @@ namespace STS2_WineFox.Powers
             IReadOnlyList<Creature> participants,
             ICombatState combatState)
         {
-            if (side == Owner.Side)
-                _gainedThisTurn = false;
-
             return Task.CompletedTask;
         }
 
@@ -71,9 +63,6 @@ namespace STS2_WineFox.Powers
             Creature? applier,
             CardModel? cardSource)
         {
-            if (power == this && amount > 0m)
-                _gainedThisTurn = true;
-
             return Task.CompletedTask;
         }
 
@@ -84,11 +73,17 @@ namespace STS2_WineFox.Powers
         {
             if (side != Owner.Side) return;
 
-
-            if (_gainedThisTurn)
+            var halved = Math.Floor(Amount / 2m);
+            if (halved == Amount)
                 return;
 
-            await PowerCmd.Remove(this);
+            if (halved == 0m)
+            {
+                await PowerCmd.Remove(this);
+                return;
+            }
+
+            await PowerCmd.Apply<ChantPower>(choiceContext, Owner, halved - Amount, Owner, null);
         }
     }
 }

@@ -19,7 +19,10 @@ namespace STS2_WineFox.Cards.Rare
         [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
         
-        public override CardAssetProfile AssetProfile => Art(Const.Paths.CardEternalMelody);
+        public override CardAssetProfile AssetProfile => new(
+            Const.Paths.CardEternalMelody,
+            Const.Paths.CardEternalMelody,
+            FrameMaterialPath: Const.Paths.CardEternalMelodyCosmicStarsFrameMat);
 
         protected override async Task OnPlay(
             PlayerChoiceContext choiceContext,

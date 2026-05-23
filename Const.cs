@@ -183,6 +183,9 @@ namespace STS2_WineFox
             public const string CardWirelessTerminalRainbowFrameMat =
                 Root + "/materials/wireless_terminal_frame_rainbow_mat.tres";
 
+            public const string CardEternalMelodyCosmicStarsFrameMat =
+                Root + "/materials/eternal_melody_cosmic_stars_mat.tres";
+
             public const string CardGoldenSword = Root + "/cards/card_golden_sword.png";
             public const string CardHellGift = Root + "/cards/card_hell_gift.png";
             public const string CardSnowBallOverwhelming = Root + "/cards/card_snow_ball_overwhelming.png";
