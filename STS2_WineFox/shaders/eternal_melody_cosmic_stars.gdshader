@@ -12,7 +12,7 @@ uniform float glow_strength : hint_range(0.0, 2.0) = 0.55;
 uniform float tint_strength : hint_range(0.0, 1.0) = 0.22;
 uniform float breath_speed : hint_range(0.05, 2.5) = 0.33;
 uniform float breath_intensity : hint_range(0.0, 0.7) = 0.18;
-uniform float nebula_strength : hint_range(0.0, 2.0) = 0.95;
+uniform float nebula_strength : hint_range(0.0, 2.0) = 0.58;
 uniform float nebula_scale : hint_range(0.5, 8.0) = 2.2;
 uniform float nebula_speed : hint_range(0.0, 2.0) = 0.22;
 uniform vec3 nebula_cold : source_color = vec3(0.08, 0.34, 0.95);
@@ -43,15 +43,36 @@ float noise21(vec2 p) {
     return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
 }
 
+vec2 rotate2(vec2 p, float a) {
+    float s = sin(a);
+    float c = cos(a);
+    return vec2(c * p.x - s * p.y, s * p.x + c * p.y);
+}
+
 float fbm(vec2 p) {
     float value = 0.0;
     float amp = 0.5;
     for (int i = 0; i < 5; i++) {
         value += noise21(p) * amp;
-        p = p * 2.03 + vec2(11.7, 7.9);
+        p = rotate2(p * 2.03, 0.63) + vec2(11.7, 7.9);
         amp *= 0.5;
     }
     return value;
+}
+
+float fbm_warped(vec2 p) {
+    // Domain warping breaks the square-cell feel from value noise.
+    vec2 q = vec2(
+        fbm(p + vec2(0.0, 0.0)),
+        fbm(p + vec2(5.2, 1.3))
+    );
+
+    vec2 r = vec2(
+        fbm(p + q * 3.8 + vec2(1.7, 9.2)),
+        fbm(p + q * 3.8 + vec2(8.3, 2.8))
+    );
+
+    return fbm(p + r * 2.4);
 }
 
 vec3 star_tint(float seed) {
@@ -120,11 +141,17 @@ void fragment() {
     stars = clamp(stars, 0.0, 1.0);
 
     vec2 flow_uv = uv * nebula_scale + vec2(TIME * nebula_speed * 0.09, TIME * nebula_speed * 0.05);
-    float n1 = fbm(flow_uv);
-    float n2 = fbm(flow_uv * 1.93 + vec2(9.7, 4.1));
-    float nebula_mask = smoothstep(0.35, 0.92, n1 * 0.8 + n2 * 0.55);
-    vec3 nebula_col = mix(nebula_cold, nebula_hot, smoothstep(0.25, 0.9, n2));
-    vec3 nebula = nebula_col * nebula_mask * nebula_strength;
+    float n_base = fbm_warped(flow_uv);
+    float n_detail = fbm_warped(flow_uv * 1.73 + vec2(7.1, 3.9));
+    float n_ridge = 1.0 - abs(n_base * 2.0 - 1.0);
+
+    float cloud_shape = n_base * 0.70 + n_detail * 0.34 + n_ridge * 0.16;
+    float nebula_mask = smoothstep(0.58, 0.98, cloud_shape);
+    nebula_mask *= smoothstep(0.12, 0.42, n_detail + n_ridge * 0.28);
+    nebula_mask *= smoothstep(0.46, 0.82, n_base);
+
+    vec3 nebula_col = mix(nebula_cold, nebula_hot, smoothstep(0.24, 0.90, n_detail));
+    vec3 nebula = nebula_col * nebula_mask * nebula_strength * 0.75;
 
     // Neutral darkening: remove gold hue bias, keep a bit of luminance detail.
     float luma = dot(base.rgb, vec3(0.299, 0.587, 0.114));
