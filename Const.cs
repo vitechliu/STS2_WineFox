@@ -252,7 +252,9 @@ namespace STS2_WineFox
             //FMOD BANK
             public const string WineFoxBank = Root + "/sfx/characters/WineFox.bank";
             public const string WineFoxGuidsFile = Root + "/sfx/characters/WineFox.guids.txt";
-
+            public const string VitechFXBank = Root + "/sfx/vfx/VitechFX.bank";
+            public const string VitechFXGuidsFile = Root + "/sfx/vfx/VitechFX.guids.txt";
+            
             //Food
             public const string Apple = Root + "/potions/foods/apple.png";
             public const string GoldenApple = Root + "/potions/foods/golden_apple.png";
@@ -278,6 +280,9 @@ namespace STS2_WineFox
             public const string Cake = Root + "/potions/foods/cake.png";
             public const string GlisteringMelon = Root + "/potions/foods/glistering_melon.png";
             public const string GoldenCarrot = Root + "/potions/foods/golden_carrot.png";
+            
+            //VFX
+            public const string DripstoneVFX = ScenesRoot + "/vfx/vfx_dripstones_fall.tscn";
         }
 
         public static class Audio

@@ -5,10 +5,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2_WineFox.Character;
 using STS2_WineFox.Commands;
 using STS2_WineFox.Powers;
+using STS2_WineFox.Utils;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -44,6 +46,12 @@ namespace STS2_WineFox.Cards.Uncommon
             }
         }
 
+        private readonly List<string> dripstoneSfxs = [
+            "event:/wf/cardfx/dripstone1",
+            "event:/wf/cardfx/dripstone2",
+            "event:/wf/cardfx/dripstone3",
+        ];
+
         protected override async Task OnPlay(
             PlayerChoiceContext choiceContext,
             CardPlay play)
@@ -60,10 +68,23 @@ namespace STS2_WineFox.Cards.Uncommon
             {
                 var target = combatState.RunState.Rng.CombatTargets.NextItem(combatState.HittableEnemies);
                 if (target == null) break;
+                var nTarget = NCombatRoom.Instance?.GetCreatureNode(target);
 
                 await DamageCmd.Attack(DynamicVars["Damage"].BaseValue)
                     .FromCard(this)
                     .Targeting(target)
+                    .BeforeDamage(async delegate
+                    {
+                        if (nTarget == null) return;
+                        VFXUtil.PlaySimple(Const.Paths.DripstoneVFX, nTarget.GlobalPosition);
+                        await VFXUtil.Wait(0.05f);
+                        VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
+                        await VFXUtil.Wait(0.04f);
+                        VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
+                        await VFXUtil.Wait(0.05f);
+                        VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
+                        await VFXUtil.Wait(0.1f);
+                    })
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);
                 await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), target, 1m, owner, this);
