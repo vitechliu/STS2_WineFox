@@ -492,6 +492,12 @@ STS2_WineFox/
 
 
 
+## STAR
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LuoTianOrange/STS2_WineFox&type=Date)](https://star-history.com/#noodle-run/noodle&Date)
+
+
+
 ## 鸣谢
 
 - 感谢[酒石酸菌](https://github.com/TartaricAcid/WineFoxModel)创作了可爱的酒狐

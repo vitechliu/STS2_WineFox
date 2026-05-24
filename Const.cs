@@ -242,6 +242,8 @@ namespace STS2_WineFox
             public const string CardEssenceReconstruction = Root + "/cards/card_essence_reconstruction.png";
             public const string CardMagicOverloaded = Root + "/cards/card_magic_overloaded.png";
             public const string CardEternalMelody = Root + "/cards/card_eternal_melody.png";
+            public const string CardManaSurge = Root + "/cards/card_test.png";
+            public const string CardTriuneBlessing = Root + "/cards/card_test.png";
 
             //Enchantments
             public const string EnchantmentFireAspectIcon = Root + "/enchantments/fire_aspect_icon.png";

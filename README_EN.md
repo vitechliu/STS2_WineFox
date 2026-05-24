@@ -1,4 +1,4 @@
-﻿﻿<div align="center">
+﻿﻿﻿<div align="center">
 <img style="width: 256px; height: auto; border-radius: 12px;" src="STS2_WineFox/mod_image.png" alt="WineFox Mod"/>
 <h1>STS2 WineFox Mod</h1>
 <div style="display: flex;flex-direction: row;justify-content: center;">
@@ -479,12 +479,17 @@ After building, the mod is automatically copied to `{STS2Dir}\mods\STS2_WineFox\
 ## Authors
 
 - Programmer: OLC, 灯火橘
-
 - Numerical Planner, Card Design: IAmNotFood, 明风OuO, 晓月漓风, 末影酱安德Channel
-
 - Card Artwork Design：灯火橘，钩ハ
-
 - Artist: 穰雀, Linger铃
+
+
+
+## STAR
+
+![Star History Chart](https://api.star-history.com/svg?repos=LuoTianOrange/STS2_WineFox&type=Date)
+
+
 
 ## Acknowledgements
 

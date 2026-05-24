@@ -257,5 +257,11 @@
   "STS2_WINE_FOX_CARD_OBTAIN_MATERIALS.description": "Gain {Wood:diff()} [gold]Plank[/gold] and {Stone:diff()} [gold]Cobblestone[/gold]{IfUpgraded:show: and {Iron:diff()} [gold]Iron Ingot[/gold]}.",
 
   "STS2_WINE_FOX_CARD_ETERNAL_MELODY.title": "Eternal Melody",
-  "STS2_WINE_FOX_CARD_ETERNAL_MELODY.description": "Whenever you play a [gold]Magic[/gold] card, a random enemy loses [blue]2[/blue] Max HP. For every {IfUpgraded:show:[blue]1[/blue]|[blue]2[/blue]} [gold]Chant[/gold], it loses an additional [blue]2[/blue] Max HP."
+  "STS2_WINE_FOX_CARD_ETERNAL_MELODY.description": "Whenever you play a [gold]Magic[/gold] card, a random enemy loses [blue]2[/blue] Max HP. For every {IfUpgraded:show:[blue]1[/blue]|[blue]2[/blue]} [gold]Chant[/gold], it loses an additional [blue]2[/blue] Max HP.",
+
+  "STS2_WINE_FOX_CARD_MANA_SURGE.title": "Mana Surge",
+  "STS2_WINE_FOX_CARD_MANA_SURGE.description": "Gain {ChantPower:diff()} [gold]Chant[/gold]. Draw {Cards:diff()} cards.",
+
+  "STS2_WINE_FOX_CARD_TRIUNE_BLESSING.title": "Triune Blessing",
+  "STS2_WINE_FOX_CARD_TRIUNE_BLESSING.description": "All players gain [blue]1[/blue] [gold]Strength[/gold], [blue]1[/blue] [gold]Dexterity[/gold], and [blue]1[/blue] [gold]Focus[/gold]. Consume up to {MaxConsume:diff()} [gold]Chant[/gold]. For each Chant consumed, gain +1 Strength and +1 Dexterity. For every 2 Chant consumed, gain +1 Focus."
 }
