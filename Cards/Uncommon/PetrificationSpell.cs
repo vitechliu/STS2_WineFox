@@ -28,8 +28,9 @@ namespace STS2_WineFox.Cards.Uncommon
             WineFoxCardVarFactory.PowerAmountVar<ChantPower>(1m),
         ];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Stone];
+            [WineFoxKeywords.Stone,WineFoxKeywords.Magic];
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];

@@ -200,19 +200,19 @@
   "STS2_WINE_FOX_CARD_ESSENCE_RECONSTRUCTION.title": "Essence Reconstruction",
   "STS2_WINE_FOX_CARD_ESSENCE_RECONSTRUCTION.description": "[gold]Exhaust[/gold] your [gold]Hand[/gold]. Gain [gold]Chant[/gold] equal to the number of cards exhausted{IfUpgraded:show:+2|}.\n Draw cards equal to your [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_MAGIC_OVERLOADED.title": "Magic Overloaded",
-  "STS2_WINE_FOX_CARD_MAGIC_OVERLOADED.description": "Lose all [gold]Chant[/gold].\nGain [gold]Strength[/gold] and [gold]Dexterity[/gold] equal to that amount{IfUpgraded:show:+1|}.",
+  "STS2_WINE_FOX_CARD_MAGIC_OVERLOADED.description": "Your [gold]Magic[/gold] cards gain an additional {IfUpgraded:show:[blue]75%[/blue]|[blue]50%[/blue]} of [gold]Chant[/gold] effects.",
   "STS2_WINE_FOX_CARD_GETTING_WOOD.title": "Getting Wood",
   "STS2_WINE_FOX_CARD_GETTING_WOOD.description": "Gain {Wood:diff()} [gold]Plank[/gold]. Deal damage equal to the [gold]Plank[/gold] gained.",
   "STS2_WINE_FOX_CARD_SCRATCH.title": "Scratch",
   "STS2_WINE_FOX_CARD_SCRATCH.description": "Deal [blue]{IfUpgraded:show:X+2|X}[/blue] damage [blue]2X[/blue] times.\n{InCombat:(Deals {TotalDamage:diff()} damage total)|}",
   "STS2_WINE_FOX_CARD_MAGIC_MISSILE.title": "Magic Missile",
-  "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "Cause an enemy to lose [purple]{Damage:diff()}[/purple] HP twice.\nGain {ChantPower:diff()} [gold]Chant[/gold].",
+  "STS2_WINE_FOX_CARD_MAGIC_MISSILE.description": "Cause an enemy to lose [purple]{Damage:diff()}[/purple] HP 3 times.\nGain {ChantPower:diff()} [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.title": "Barrier Wave",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": " ALL enemies loses [purple]{Damage:diff()}[/purple] HP. Gain [purple]{ChantBlock:diff()}[/purple] [gold]Block[/gold].\nGain {ChantPower:diff()} [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "Intermittent Chanting",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "Gain 1 [gold]Weak[/gold].\nWhenever you cause an enemy to lose HP, that enemy gains [blue]1[/blue] [gold]Block[/gold] and you gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
   "STS2_WINE_FOX_CARD_SHARD_COPY.title": "Mind Over Matter",
-  "STS2_WINE_FOX_CARD_SHARD_COPY.description": "Whenever you gain [gold]Chant[/gold], gain 1 additional [gold]Chant[/gold].",
+  "STS2_WINE_FOX_CARD_SHARD_COPY.description": "Whenever you play a [gold]Magic[/gold] card, gain [gold]Chant 1[/gold].",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.title": "Explosion Magic",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.description": "Apply [purple]{Burn:diff()}[/purple] [gold]Burning[/gold] to ALL enemies {Hits:diff()} times.\nLose 3 [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_EROSION.title": "Erosion",
@@ -222,7 +222,7 @@
   "STS2_WINE_FOX_CARD_MEMORY.description": "At the start of your turn, add a copy of the last [gold]Skill[/gold] you played. It gains [gold]Exhaust[/gold]{IfUpgraded:show: and [gold]Retain[/gold]|}.",
 
   "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.title": "Otherworld Crossing",
-  "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.description": "At the start of each turn, choose a card in your hand. Add a copy of it to your hand with [gold]Ethereal[/gold] and [gold]Exhaust[/gold].",
+  "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.description": "At the start of each turn, randomly choose a card in your hand. Add a copy of it to your hand with [gold]Ethereal[/gold] and [gold]Exhaust[/gold].",
   "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE": "Choose a card to copy",
 
   "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.title": "Petrification",
@@ -257,5 +257,11 @@
   "STS2_WINE_FOX_CARD_OBTAIN_MATERIALS.description": "Gain {Wood:diff()} [gold]Plank[/gold] {IfUpgraded:show:|and }{Stone:diff()} [gold]Cobblestone[/gold]{IfUpgraded:show: and {Iron:diff()} [gold]Iron Ingot[/gold]}.",
 
   "STS2_WINE_FOX_CARD_ETERNAL_MELODY.title": "Eternal Melody",
-  "STS2_WINE_FOX_CARD_ETERNAL_MELODY.description": "Retain your [gold]Chant[/gold] for 1 turn.{IfUpgraded:show: Gain 1 [gold]Chant[/gold].|}"
+  "STS2_WINE_FOX_CARD_ETERNAL_MELODY.description": "Whenever you play a [gold]Magic[/gold] card, a random enemy loses [blue]2[/blue] Max HP. For every {IfUpgraded:show:[blue]1[/blue]|[blue]2[/blue]} [gold]Chant[/gold], it loses an additional [blue]2[/blue] Max HP.",
+
+  "STS2_WINE_FOX_CARD_MANA_SURGE.title": "Mana Surge",
+  "STS2_WINE_FOX_CARD_MANA_SURGE.description": "Gain[purple]{ChantPower:diff()}[/purple][gold]Chant[/gold] (up to {IfUpgraded:show:[blue]6[/blue]|[blue]4[/blue]}). Draw {Cards:diff()} cards.",
+
+  "STS2_WINE_FOX_CARD_TRIUNE_BLESSING.title": "Triune Blessing",
+  "STS2_WINE_FOX_CARD_TRIUNE_BLESSING.description": "All players gain [blue]1[/blue] [gold]Strength[/gold], [blue]1[/blue] [gold]Dexterity[/gold], and [blue]1[/blue] [gold]Focus[/gold]. Consume up to {MaxConsume:diff()} [gold]Chant[/gold]. For each Chant consumed, gain +1 Strength and +1 Dexterity. For every 2 Chant consumed, gain +1 Focus."
 }

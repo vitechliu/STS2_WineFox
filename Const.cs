@@ -4,7 +4,7 @@ namespace STS2_WineFox
     {
         public const string ModId = "STS2-WineFox";
         public const string Name = "WineFox";
-        public const string Version = "1.1.12";
+        public const string Version = "1.1.21";
 
         /// <summary>
         ///     When true, WineFox skips <c>RequireEpoch</c> gating for this mod’s models (full pool / character access without
@@ -110,8 +110,9 @@ namespace STS2_WineFox
             public const string ShardCopyPowerIcon = Root + "/powers/shard_copy_power.png";
             public const string ArmToTeethPowerIcon = Root + "/powers/arm_to_teeth_power.png";
             public const string EternalMelodyPowerIcon = Root + "/powers/eternal_melody_power.png";
+            public const string MagicOverloadedPowerIcon = Root + "/powers/magic_overloaded_power.png";
 
-            
+
             public const string BurningIcon = Root + "/powers/burning_power.png";
 
             //Card
@@ -138,7 +139,7 @@ namespace STS2_WineFox
             public const string CardIronZombie = Root + "/cards/card_ironzombie.png";
             public const string CardCrushingWheel = Root + "/cards/card_crushingwheel.png";
             public const string CardEnmergencyRepair = Root + "/cards/card_enmergency_repair.png";
-            public const string CardLightAssault = Root + "/cards/card_test.png";
+            public const string CardLightAssault = Root + "/cards/card_light_assault.png";
             public const string CardEasyPeasy = Root + "/cards/card_easy_peasy.png";
             public const string CardAllItem = Root + "/cards/card_allitem.png";
             public const string CardAllItemUpgraded = Root + "/cards/card_allitem_upgraded.png";
@@ -181,6 +182,9 @@ namespace STS2_WineFox
 
             public const string CardWirelessTerminalRainbowFrameMat =
                 Root + "/materials/wireless_terminal_frame_rainbow_mat.tres";
+
+            public const string CardEternalMelodyCosmicStarsFrameMat =
+                Root + "/materials/eternal_melody_cosmic_stars_mat.tres";
 
             public const string CardGoldenSword = Root + "/cards/card_golden_sword.png";
             public const string CardHellGift = Root + "/cards/card_hell_gift.png";
@@ -238,7 +242,9 @@ namespace STS2_WineFox
             public const string CardEssenceReconstruction = Root + "/cards/card_essence_reconstruction.png";
             public const string CardMagicOverloaded = Root + "/cards/card_magic_overloaded.png";
             public const string CardEternalMelody = Root + "/cards/card_eternal_melody.png";
-            
+            public const string CardManaSurge = Root + "/cards/card_mana_surge.png";
+            public const string CardTriuneBlessing = Root + "/cards/card_triune_blessing.png";
+
             //Enchantments
             public const string EnchantmentFireAspectIcon = Root + "/enchantments/fire_aspect_icon.png";
             public const string EnchantmentSweepingEdgeIcon = Root + "/enchantments/sweeping_edge_icon.png";
@@ -246,7 +252,7 @@ namespace STS2_WineFox
             //FMOD BANK
             public const string WineFoxBank = Root + "/sfx/characters/WineFox.bank";
             public const string WineFoxGuidsFile = Root + "/sfx/characters/WineFox.guids.txt";
-            
+
             //Food
             public const string Apple = Root + "/potions/foods/apple.png";
             public const string GoldenApple = Root + "/potions/foods/golden_apple.png";

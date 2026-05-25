@@ -11,6 +11,7 @@ namespace STS2_WineFox.Cards.Rare
     public class WirelessTerminal() : WineFoxCard(
         1, CardType.Skill, CardRarity.Rare, TargetType.None), ICraftingCard
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 

@@ -94,7 +94,10 @@ namespace STS2_WineFox.Powers
         }
 
         public override Task BeforeSideTurnStart(
-            PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+            PlayerChoiceContext choiceContext,
+            CombatSide side,
+            IReadOnlyList<Creature> participants,
+            ICombatState combatState)
         {
             if (side != Owner.Side) return Task.CompletedTask;
 

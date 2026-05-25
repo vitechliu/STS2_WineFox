@@ -11,23 +11,28 @@ namespace STS2_WineFox.Cards.Rare
 {
     [RegisterCard(typeof(WineFoxCardPool))]
     public class EternalMelody() : WineFoxCard(
-        0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+        2, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];
 
-        public override CardAssetProfile AssetProfile => Art(Const.Paths.CardEternalMelody);
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
+        
+        public override CardAssetProfile AssetProfile => new(
+            Const.Paths.CardEternalMelody,
+            Const.Paths.CardEternalMelody,
+            FrameMaterialPath: Const.Paths.CardEternalMelodyCosmicStarsFrameMat);
 
         protected override async Task OnPlay(
             PlayerChoiceContext choiceContext,
             CardPlay play)
         {
             var owner = Owner.Creature;
-
-            await PowerCmd.Apply<EternalMelodyRetentionPower>(choiceContext, owner, 1m, owner, this);
-
             if (IsUpgraded)
-                await PowerCmd.Apply<ChantPower>(choiceContext, owner, 1m, owner, this);
+                await PowerCmd.Apply<EternalMelodyPlusPower>(choiceContext, owner, 1m, owner, this);
+            else
+                await PowerCmd.Apply<EternalMelodyRetentionPower>(choiceContext, owner, 2m, owner, this);
         }
 
         protected override void OnUpgrade()

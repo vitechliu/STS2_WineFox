@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -14,9 +14,9 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace STS2_WineFox.Cards.Uncommon
 {
     /// <summary>
-    ///     溃蚀 - 1 cost Skill Uncommon.
-    ///     给予 5+ChantPower 层瓦解（DemisePower）。所有拥有瓦解的敌人失去与层数相同的生命。
-    ///     获得 1 点吟唱。升级：变为 9+ChantPower 层。
+    ///     婧冭殌 - 1 cost Skill Uncommon.
+    ///     缁欎簣 5+ChantPower 灞傜摝瑙ｏ紙DemisePower锛夈€傛墍鏈夋嫢鏈夌摝瑙ｇ殑鏁屼汉澶卞幓涓庡眰鏁扮浉鍚岀殑鐢熷懡銆?    ///     鑾峰緱 1 鐐瑰悷鍞便€傚崌绾э細鍙樹负 9+ChantPower
+    ///     灞傘€?    ///
     /// </summary>
     [RegisterCard(typeof(WineFoxCardPool))]
     public class Erosion() : WineFoxCard(
@@ -33,6 +33,9 @@ namespace STS2_WineFox.Cards.Uncommon
             HoverTipFactory.FromPower<DemisePower>(),
             HoverTipFactory.FromPower<ChantPower>(),
         ];
+
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardErosion);
 

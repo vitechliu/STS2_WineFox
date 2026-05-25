@@ -21,6 +21,7 @@ namespace STS2_WineFox.Cards
         public const string EasyPeasyKey = "easypeasy";
         public const string CraftKey = "craft";
         public const string ExchangeKey = "exchange";
+        public const string MagicKey = "magic";
 
         public static readonly string Stress = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, StressKey);
         public static readonly string Digging = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, DiggingKey);
@@ -39,6 +40,7 @@ namespace STS2_WineFox.Cards
         public static readonly string EasyPeasy = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, EasyPeasyKey);
         public static readonly string Craft = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, CraftKey);
         public static readonly string Exchange = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, ExchangeKey);
+        public static readonly string Magic = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, MagicKey);
 
         extension(CardModel card)
         {
@@ -90,6 +92,11 @@ namespace STS2_WineFox.Cards
             public bool IsEasyPeasy()
             {
                 return card.HasModKeyword(EasyPeasy);
+            }
+
+            public bool IsMagic()
+            {
+                return card.HasModKeyword(Magic);
             }
         }
     }

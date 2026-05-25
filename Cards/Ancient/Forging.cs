@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -15,7 +15,7 @@ namespace STS2_WineFox.Cards.Ancient
         1, CardType.Skill, CardRarity.Ancient, TargetType.Self), ICraftingCard
     {
         public override bool GainsBlock => true;
-
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 
@@ -51,3 +51,4 @@ namespace STS2_WineFox.Cards.Ancient
         }
     }
 }
+

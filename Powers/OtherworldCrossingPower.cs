@@ -1,10 +1,8 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -25,21 +23,18 @@ namespace STS2_WineFox.Powers
         public override PowerAssetProfile AssetProfile => Icons(Const.Paths.OtherworldCrossingPowerIcon);
 
         public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-        
+
         protected override async Task OnAfterPlayerTurnStart(
             PlayerChoiceContext choiceContext, Player player)
         {
             if (player.Creature != Owner) return;
 
-            if (PileType.Hand.GetPile(player).Cards.Count == 0) return;
+            var handCards = PileType.Hand.GetPile(player).Cards.ToList();
+            if (handCards.Count == 0) return;
 
             Flash();
-            
-            var prompt = new LocString("cards", "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE");
-            var prefs = new CardSelectorPrefs(prompt, 1, 1);
 
-            var selected = (await CardSelectCmd.FromHand(choiceContext, player, prefs, null, this))
-                .FirstOrDefault();
+            var selected = player.RunState.Rng.CombatCardSelection.NextItem(handCards);
 
             if (selected == null) return;
 
@@ -52,4 +47,3 @@ namespace STS2_WineFox.Powers
         }
     }
 }
-

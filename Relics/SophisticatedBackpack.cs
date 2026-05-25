@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -171,6 +172,7 @@ namespace STS2_WineFox.Relics
         }
 
         public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+            IReadOnlyList<Creature> participants,
             ICombatState combatState)
         {
             _pendingEffectFlash = false;
@@ -185,7 +187,10 @@ namespace STS2_WineFox.Relics
             FlushPendingEffectFlash();
         }
 
-        public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+        public override async Task AfterSideTurnEnd(
+            PlayerChoiceContext choiceContext,
+            CombatSide side,
+            IEnumerable<Creature> participants)
         {
             _pendingEffectFlash = false;
             foreach (var effect in SophisticatedBackpackEffects.All)

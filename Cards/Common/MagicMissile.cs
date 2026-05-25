@@ -13,8 +13,8 @@ namespace STS2_WineFox.Cards.Common
 {
     /// <summary>
     ///     魔法飞弹 - 1 cost Skill Common.
-    ///     敌人失去 5+ChantPower 点生命 2 次。获得 1 层 ChantPower。
-    ///     升级：基础值 +3。
+    ///     使敌人失去 3 点生命 3 次。
+    ///     升级：基础值 +2（变为 5）。
     /// </summary>
     [RegisterCard(typeof(WineFoxCardPool))]
     public class MagicMissile() : WineFoxCard(
@@ -24,12 +24,15 @@ namespace STS2_WineFox.Cards.Common
         [
             WineFoxCardVarFactory.ChantDamageVar(
                 "Damage",
-                5m),
+                3m),
             new PowerVar<ChantPower>(1m)
         ];
 
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];
+        
+        [Obsolete]
+        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
         
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardMagicMissile);
 
@@ -39,8 +42,8 @@ namespace STS2_WineFox.Cards.Common
         {
             ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
 
-            var damagePerHit = WineFoxCardVarFactory.ResolveChantDamageForPlay(this, "Damage", play.Target);
-            for (var i = 0; i < 2; i++)
+            var damagePerHit = DynamicVars["Damage"].BaseValue;
+            for (var i = 0; i < 3; i++)
             {
                 await CreatureCmd.Damage(
                     choiceContext,
@@ -56,7 +59,7 @@ namespace STS2_WineFox.Cards.Common
 
         protected override void OnUpgrade()
         {
-            DynamicVars["Damage"].UpgradeValueBy(3m);
+            DynamicVars["Damage"].UpgradeValueBy(2m);
         }
     }
 }
