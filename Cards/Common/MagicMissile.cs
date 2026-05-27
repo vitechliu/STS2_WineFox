@@ -42,7 +42,7 @@ namespace STS2_WineFox.Cards.Common
         {
             ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
 
-            var damagePerHit = DynamicVars["Damage"].BaseValue;
+            var damagePerHit = WineFoxCardVarFactory.ResolveChantDamageForPlay(this, "Damage", play.Target);
             for (var i = 0; i < 3; i++)
             {
                 await CreatureCmd.Damage(

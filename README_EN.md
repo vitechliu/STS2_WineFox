@@ -1,4 +1,4 @@
-﻿﻿﻿<div align="center">
+﻿﻿﻿﻿<div align="center">
 <img style="width: 256px; height: auto; border-radius: 12px;" src="STS2_WineFox/mod_image.png" alt="WineFox Mod"/>
 <h1>STS2 WineFox Mod</h1>
 <div style="display: flex;flex-direction: row;justify-content: center;">
@@ -12,7 +12,7 @@
 <div><a href="README.md">简体中文</a> | <b>English</b></div>
 </div>
 
-WineFox is a character originating from the Minecraft mod *Touhou Gensokyo Maid*, now brought to Slay the Spire 2 as a custom character mod. Her playstyle revolves around **crafting** and **resource management** — gather Planks, Cobblestone, Iron Ingots, and Diamonds, then leverage Craft, Stress, and powerful combos to dominate combat.
+WineFox is a character originating from the Minecraft mod *[Touhou Little Maid](https://modrinth.com/mod/touhou-little-maid)*, now brought to Slay the Spire 2 as a custom character mod. Her playstyle revolves around **crafting** and **resource management** — gather Planks, Cobblestone, Iron Ingots, and Diamonds, then leverage Craft, Stress, and powerful combos to dominate combat.
 
 ---
 
