@@ -6,7 +6,7 @@ namespace STS2_WineFox.Scripts.Effects;
 public partial class McBlock : Node2D
 {
     private Texture2D? _blockTexture;
-    
+
     [Export]
     public Texture2D? BlockTexture
     {
@@ -17,10 +17,10 @@ public partial class McBlock : Node2D
             UpdateMaterial();
         }
     }
-    
+
     private MeshInstance3D? _mesh;
     private double _time;
-    
+
     public override void _Ready()
     {
         _mesh = GetNode<MeshInstance3D>("SubViewportContainer/SubViewport/MeshInstance3D");
@@ -30,7 +30,7 @@ public partial class McBlock : Node2D
     private void UpdateMaterial()
     {
         if (_mesh == null) return;
-        
+
         if (_blockTexture != null)
         {
             var mat = new StandardMaterial3D
@@ -51,7 +51,7 @@ public partial class McBlock : Node2D
     {
         _time += delta;
         if (_mesh == null) return;
-        
+
         _mesh.RotateY((float)delta * 2);
         _mesh.RotationDegrees = new Vector3(
             0,

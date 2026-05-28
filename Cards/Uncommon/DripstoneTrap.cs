@@ -76,7 +76,7 @@ namespace STS2_WineFox.Cards.Uncommon
                     .BeforeDamage(async delegate
                     {
                         if (nTarget == null) return;
-                        VFXUtil.PlaySimple(Const.Paths.DripstoneVFX, nTarget.GlobalPosition);
+                        VFXUtil.PlaySimple(Const.Paths.DripstoneVfx, nTarget.GlobalPosition);
                         await VFXUtil.Wait(0.05f);
                         VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
                         await VFXUtil.Wait(0.04f);

@@ -13,7 +13,8 @@ namespace STS2_WineFox.Utils
         private static List<string> CollectAssetPathsSafely()
         {
             return [
-                Const.Paths.DripstoneVFX,
+                Const.Paths.DripstoneVfx,
+                Const.Paths.BasicMineVfx,
             ];
         }
 

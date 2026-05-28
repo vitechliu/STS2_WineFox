@@ -23,13 +23,12 @@ namespace STS2_WineFox.Utils
     /// </summary>
     public static class VFXUtil
     {
-
         public static AudioPlayResult PlaySFXSimple(string path)
         {
             return GameAudioService.Shared.PlayOneShot((new SoundFileSource("res://xxx.mp3")));
             // return GameAudioService.Shared.PlayOneShot(AudioSource.Event(path));
         }
-        
+
         public static Vector2 RandVec2(float beta)
         {
             return new Vector2((float)GD.RandRange(-1f, 1f) * beta, (float)GD.RandRange(-1f, 1f) * beta);
@@ -63,14 +62,17 @@ namespace STS2_WineFox.Utils
                 NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(node2D);
                 node2D.GlobalPosition = position;
 
-                SceneTreeTimer timer = node2D.GetTree().CreateTimer(lifetime);
-                timer.Timeout += () =>
+                if (lifetime > 0f)
                 {
-                    if (GodotObject.IsInstanceValid(node2D))
+                    SceneTreeTimer timer = node2D.GetTree().CreateTimer(lifetime);
+                    timer.Timeout += () =>
                     {
-                        node2D.QueueFreeSafely();
-                    }
-                };
+                        if (GodotObject.IsInstanceValid(node2D))
+                        {
+                            node2D.QueueFreeSafely();
+                        }
+                    };
+                }
                 return node2D;
             }
 
@@ -202,8 +204,8 @@ namespace STS2_WineFox.Utils
                 }
             }
         }
-
     }
+
     public static class RandomHelper
     {
         private static readonly Random _random = new Random();

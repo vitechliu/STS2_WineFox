@@ -282,7 +282,8 @@ namespace STS2_WineFox
             public const string GoldenCarrot = Root + "/potions/foods/golden_carrot.png";
             
             //VFX
-            public const string DripstoneVFX = ScenesRoot + "/vfx/vfx_dripstones_fall.tscn";
+            public const string DripstoneVfx = ScenesRoot + "/vfx/vfx_dripstones_fall.tscn";
+            public const string BasicMineVfx = ScenesRoot + "/vfx/vfx_basic_mine.tscn";
         }
 
         public static class Audio
