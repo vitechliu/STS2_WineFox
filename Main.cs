@@ -51,8 +51,6 @@ namespace STS2_WineFox
 
                 FmodStudioDeferredBankRegistration.RegisterBank(Const.Paths.WineFoxBank);
                 FmodStudioDeferredBankRegistration.RegisterStudioGuidMappings(Const.Paths.WineFoxGuidsFile);
-                FmodStudioDeferredBankRegistration.RegisterBank(Const.Paths.VitechFXBank);
-                FmodStudioDeferredBankRegistration.RegisterStudioGuidMappings(Const.Paths.VitechFXGuidsFile);
                 
                 var wineFoxPublicEntry = ModContentRegistry.GetFixedPublicEntry(Const.ModId, typeof(WineFox));
                 RitsuLibFramework.GetContentRegistry(Const.ModId)

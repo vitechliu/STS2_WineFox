@@ -252,8 +252,6 @@ namespace STS2_WineFox
             //FMOD BANK
             public const string WineFoxBank = Root + "/sfx/characters/WineFox.bank";
             public const string WineFoxGuidsFile = Root + "/sfx/characters/WineFox.guids.txt";
-            public const string VitechFXBank = Root + "/sfx/vfx/VitechFX.bank";
-            public const string VitechFXGuidsFile = Root + "/sfx/vfx/VitechFX.guids.txt";
             
             //Food
             public const string Apple = Root + "/potions/foods/apple.png";
