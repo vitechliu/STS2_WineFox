@@ -252,7 +252,7 @@ namespace STS2_WineFox
             //FMOD BANK
             public const string WineFoxBank = Root + "/sfx/characters/WineFox.bank";
             public const string WineFoxGuidsFile = Root + "/sfx/characters/WineFox.guids.txt";
-
+            
             //Food
             public const string Apple = Root + "/potions/foods/apple.png";
             public const string GoldenApple = Root + "/potions/foods/golden_apple.png";
@@ -278,6 +278,11 @@ namespace STS2_WineFox
             public const string Cake = Root + "/potions/foods/cake.png";
             public const string GlisteringMelon = Root + "/potions/foods/glistering_melon.png";
             public const string GoldenCarrot = Root + "/potions/foods/golden_carrot.png";
+            
+            //VFX
+            public const string DripstoneVfx = ScenesRoot + "/vfx/vfx_dripstones_fall.tscn";
+            public const string BasicMineVfx = ScenesRoot + "/vfx/vfx_basic_mine.tscn";
+            public const string DrinkMilkVfx = ScenesRoot + "/vfx/vfx_milk_drink.tscn";
         }
 
         public static class Audio
@@ -287,6 +292,12 @@ namespace STS2_WineFox
             public const string Attack = "event:/sfx/characters/silent/silent_attack";
             public const string Cast = "event:/sfx/characters/silent/silent_cast";
             public const string Death = "event:/sfx/characters/silent/silent_die";
+
+
+            //CardSFX
+            public const string Dripstone = "event:/sfx/cards/dripstone";
+            public const string Drink = "event:/sfx/cards/drink_1";
+            public const string PickUp = "event:/sfx/cards/pickup";
         }
     }
 }

@@ -1,3 +1,4 @@
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,8 +28,17 @@ namespace STS2_WineFox.Cards.Rare
             var castDelay = owner.Character?.CastAnimDelay ?? 0f;
 
             await CreatureCmd.TriggerAnim(creature, "Cast", castDelay);
-            VfxCmd.PlayOnCreatureCenter(creature, "vfx/vfx_flying_slash");
-
+            var node = creature.GetCreatureNode();
+            if (node != null)
+            {
+                //喝牛奶的位置
+                var mousePos = node.VfxSpawnPosition + new Vector2(25f, -60f);
+                VFXUtil.PlaySimple(Const.Paths.DrinkMilkVfx, mousePos, 2.5f);
+                await VFXUtil.Wait(0.7f);
+                VFXUtil.PlaySFXSimple(Const.Audio.Drink);
+            }
+            // VfxCmd.PlayOnCreatureCenter(creature, "vfx/vfx_flying_slash");
+            
             await MilkCleanseHelper.Cleanse(creature, creature, this);
         }
 

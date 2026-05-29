@@ -5,6 +5,7 @@ using STS2_WineFox.Character;
 using STS2_WineFox.Commands;
 using STS2_WineFox.Patches;
 using STS2_WineFox.Telemetry;
+using STS2_WineFox.Utils;
 using STS2RitsuLib;
 using STS2RitsuLib.Audio;
 using STS2RitsuLib.Content;
@@ -50,7 +51,7 @@ namespace STS2_WineFox
 
                 FmodStudioDeferredBankRegistration.RegisterBank(Const.Paths.WineFoxBank);
                 FmodStudioDeferredBankRegistration.RegisterStudioGuidMappings(Const.Paths.WineFoxGuidsFile);
-
+                
                 var wineFoxPublicEntry = ModContentRegistry.GetFixedPublicEntry(Const.ModId, typeof(WineFox));
                 RitsuLibFramework.GetContentRegistry(Const.ModId)
                     .RegisterCardLibraryCompendiumSharedPoolFilter<WineFoxCraftingCardPool>(
@@ -66,6 +67,7 @@ namespace STS2_WineFox
                 ModTypeDiscoveryHub.RegisterModAssembly(Const.ModId, assembly);
                 MaterialPowerRegistry.RegisterWineFoxDefaults();
                 WineFoxTelemetryBootstrap.Initialize();
+                VFXCache.LoadScenes();
                 IsModActive = true;
                 Logger.Info("Mod initialization complete - Mod is now ACTIVE");
             }
