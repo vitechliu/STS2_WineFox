@@ -1,3 +1,4 @@
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -46,11 +47,16 @@ namespace STS2_WineFox.Cards.Uncommon
             }
         }
 
-        private readonly List<string> dripstoneSfxs = [
-            "event:/wf/cardfx/dripstone1",
-            "event:/wf/cardfx/dripstone2",
-            "event:/wf/cardfx/dripstone3",
-        ];
+        protected async void FallDripstone(Vector2 position)
+        {
+            VFXUtil.PlaySimple(Const.Paths.DripstoneVfx, position);
+            await VFXUtil.Wait(0.06f);
+            VFXUtil.PlaySFXSimple(Const.Audio.Dripstone);
+            await VFXUtil.Wait(0.08f);
+            VFXUtil.PlaySFXSimple(Const.Audio.Dripstone);
+            await VFXUtil.Wait(0.09f);
+            VFXUtil.PlaySFXSimple(Const.Audio.Dripstone);
+        }
 
         protected override async Task OnPlay(
             PlayerChoiceContext choiceContext,
@@ -68,7 +74,7 @@ namespace STS2_WineFox.Cards.Uncommon
             {
                 var target = combatState.RunState.Rng.CombatTargets.NextItem(combatState.HittableEnemies);
                 if (target == null) break;
-                var nTarget = NCombatRoom.Instance?.GetCreatureNode(target);
+                var nTarget = target.GetCreatureNode();
 
                 await DamageCmd.Attack(DynamicVars["Damage"].BaseValue)
                     .FromCard(this)
@@ -76,13 +82,7 @@ namespace STS2_WineFox.Cards.Uncommon
                     .BeforeDamage(async delegate
                     {
                         if (nTarget == null) return;
-                        VFXUtil.PlaySimple(Const.Paths.DripstoneVfx, nTarget.GlobalPosition);
-                        await VFXUtil.Wait(0.05f);
-                        VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
-                        await VFXUtil.Wait(0.04f);
-                        VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
-                        await VFXUtil.Wait(0.05f);
-                        VFXUtil.PlaySFXSimple(dripstoneSfxs.VRand());
+                        FallDripstone(nTarget.GlobalPosition);
                         await VFXUtil.Wait(0.1f);
                     })
                     .WithHitFx("vfx/vfx_attack_slash")

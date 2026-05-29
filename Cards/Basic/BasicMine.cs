@@ -35,7 +35,7 @@ namespace STS2_WineFox.Cards.Basic
             PlayerChoiceContext choiceContext,
             CardPlay play)
         {
-            var nCreature = NCombatRoom.Instance?.GetCreatureNode(Owner.Creature);
+            var nCreature = Owner.Creature.GetCreatureNode();
             if (nCreature != null)
                 VFXUtil.PlaySimple(Const.Paths.BasicMineVfx, nCreature.VfxSpawnPosition, -1f);
             await MaterialCmd.GainMaterials<WoodPower, StonePower>(

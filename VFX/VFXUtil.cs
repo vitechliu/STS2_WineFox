@@ -25,8 +25,7 @@ namespace STS2_WineFox.Utils
     {
         public static AudioPlayResult PlaySFXSimple(string path)
         {
-            return GameAudioService.Shared.PlayOneShot((new SoundFileSource("res://xxx.mp3")));
-            // return GameAudioService.Shared.PlayOneShot(AudioSource.Event(path));
+            return GameAudioService.Shared.PlayOneShot(AudioSource.Event(path));
         }
 
         public static Vector2 RandVec2(float beta)
