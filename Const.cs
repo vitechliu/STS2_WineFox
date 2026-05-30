@@ -20,7 +20,7 @@ namespace STS2_WineFox
             public const string ScenesRoot = Root + "/scenes";
 
             public const string EnergyIconCake = Root + "/winefox/winefox_energy_icon.png";
-            public const string CharacterVisualsScene = ScenesRoot + "/winefox/winefox.tscn";
+            public const string CharacterVisualsScene = ScenesRoot + "/combat/winefox_combat.tscn";
             public const string CharacterIconScene = ScenesRoot + "/ui/character_icons/wine_fox_icon.tscn";
             public const string CharacterSelectBgScene = ScenesRoot + "/char_select/char_select_bg_wine_fox.tscn";
             public const string CharacterRestSiteAnimScene = ScenesRoot + "/rest_site/winefox_rest_site.tscn";
@@ -35,7 +35,7 @@ namespace STS2_WineFox
             public const string ArmPaperTexturePath = Root + "/winefox/arm/winefox_paper.png";
             public const string ArmScissorsTexturePath = Root + "/winefox/arm/winefox_scissors.png";
             public const string CharacterDeathPortrait = Root + "/winefox/winefox_die.png";
-            public const string CharacterAlivePortrait = Root + "/winefox/winefox.tscn";
+            public const string CharacterAlivePortrait = ScenesRoot + "/combat/winefox_combat.tscn";
 
 
             public const string CharacterSelectLockedIcon =
