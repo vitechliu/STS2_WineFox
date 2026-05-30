@@ -283,6 +283,7 @@ namespace STS2_WineFox
             public const string DripstoneVfx = ScenesRoot + "/vfx/vfx_dripstones_fall.tscn";
             public const string BasicMineVfx = ScenesRoot + "/vfx/vfx_basic_mine.tscn";
             public const string DrinkMilkVfx = ScenesRoot + "/vfx/vfx_milk_drink.tscn";
+            public const string HoldWToPonderVfx = ScenesRoot + "/vfx/vfx_hold_w_to_ponder.tscn";
         }
 
         public static class Audio
@@ -298,6 +299,7 @@ namespace STS2_WineFox
             public const string Dripstone = "event:/sfx/cards/dripstone";
             public const string Drink = "event:/sfx/cards/drink_1";
             public const string PickUp = "event:/sfx/cards/pickup";
+            public const string IdleSet1 = "event:/sfx/common/idle_rand_set_1";
         }
     }
 }
