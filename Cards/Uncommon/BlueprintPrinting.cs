@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,6 +18,7 @@ namespace STS2_WineFox.Cards.Uncommon
     {
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone];
 

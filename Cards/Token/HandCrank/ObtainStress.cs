@@ -13,6 +13,7 @@ namespace STS2_WineFox.Cards.Token.HandCrank
     public class ObtainStress() : WineFoxCard(
         0, CardType.Skill, CardRarity.Token, TargetType.None), IDirectApply
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Stress];
         protected override IEnumerable<DynamicVar> CanonicalVars =>

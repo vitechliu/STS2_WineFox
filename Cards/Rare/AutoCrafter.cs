@@ -12,6 +12,7 @@ namespace STS2_WineFox.Cards.Rare
     public class AutoCrafter() : WineFoxCard(
         0, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 

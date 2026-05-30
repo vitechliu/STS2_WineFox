@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2_WineFox.Character;
@@ -19,6 +19,7 @@ namespace STS2_WineFox.Cards.Rare
                 WineFoxCardVarFactory.StressDoubledDynamicVar("Diamond")),
         ];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Diamond];
 

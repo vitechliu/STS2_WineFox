@@ -11,6 +11,7 @@ namespace STS2_WineFox.Cards.Common
     public class BackupCrafting() : WineFoxCard(
         0, CardType.Skill, CardRarity.Common, TargetType.None), ICraftingCard
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 

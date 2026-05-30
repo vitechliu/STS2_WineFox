@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -18,6 +18,7 @@ namespace STS2_WineFox.Cards.Basic
     public class BasicMine() : WineFoxCard(1, CardType.Skill,
         CardRarity.Basic, TargetType.Self)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone];
 

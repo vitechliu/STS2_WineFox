@@ -23,6 +23,7 @@ namespace STS2_WineFox.Cards.Rare
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(MaterialGainedMultiplier),
         ];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Material];
         

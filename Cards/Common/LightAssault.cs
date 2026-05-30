@@ -16,6 +16,7 @@ namespace STS2_WineFox.Cards.Common
     public class LightAssault() : WineFoxCard(
         0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Material];
 

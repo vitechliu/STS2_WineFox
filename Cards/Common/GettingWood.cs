@@ -15,6 +15,7 @@ namespace STS2_WineFox.Cards.Common
     public class GettingWood() : WineFoxCard(
         1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood];
 

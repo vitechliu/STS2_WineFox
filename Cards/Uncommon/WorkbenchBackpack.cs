@@ -16,6 +16,7 @@ namespace STS2_WineFox.Cards.Uncommon
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new EnergyVar(1)];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 

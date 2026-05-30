@@ -12,6 +12,7 @@ namespace STS2_WineFox.Cards.Rare
     [RegisterCard(typeof(WineFoxCardPool))]
     public class SteamEngine() : WineFoxCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Stress];
 

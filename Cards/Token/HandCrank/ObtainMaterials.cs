@@ -14,6 +14,7 @@ namespace STS2_WineFox.Cards.Token.HandCrank
     public class ObtainMaterials() : WineFoxCard(
         0, CardType.Skill, CardRarity.Token, TargetType.None), IDirectApply
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone, WineFoxKeywords.Iron];
 

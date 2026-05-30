@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -13,6 +13,7 @@ namespace STS2_WineFox.Cards.Rare
     [RegisterCard(typeof(WineFoxCardPool))]
     public class AllItem() : WineFoxCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone, WineFoxKeywords.Iron, WineFoxKeywords.Diamond];
 

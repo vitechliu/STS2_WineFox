@@ -16,6 +16,7 @@ namespace STS2_WineFox.Cards.Common
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new CardsVar(1), new("Stress", 1m)];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Stress];
         

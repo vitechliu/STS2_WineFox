@@ -15,6 +15,7 @@ namespace STS2_WineFox.Cards.Common
     public class PreProcessing() : WineFoxCard(
         0, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone];
 

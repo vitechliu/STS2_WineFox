@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using STS2RitsuLib.Content;
 using STS2RitsuLib.Keywords;
 
@@ -42,61 +43,73 @@ namespace STS2_WineFox.Cards
         public static readonly string Exchange = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, ExchangeKey);
         public static readonly string Magic = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, MagicKey);
 
+        private static readonly CardKeyword StressKeyword = Stress.GetModCardKeyword();
+        private static readonly CardKeyword DiggingKeyword = Digging.GetModCardKeyword();
+        private static readonly CardKeyword WoodKeyword = Wood.GetModCardKeyword();
+        private static readonly CardKeyword StoneKeyword = Stone.GetModCardKeyword();
+        private static readonly CardKeyword IronKeyword = Iron.GetModCardKeyword();
+        private static readonly CardKeyword PlantKeyword = Plant.GetModCardKeyword();
+        private static readonly CardKeyword SteamKeyword = Steam.GetModCardKeyword();
+        private static readonly CardKeyword DiamondKeyword = Diamond.GetModCardKeyword();
+        private static readonly CardKeyword RadiationLeakKeyword = RadiationLeak.GetModCardKeyword();
+        private static readonly CardKeyword EasyPeasyKeyword = EasyPeasy.GetModCardKeyword();
+        private static readonly CardKeyword MagicKeyword = Magic.GetModCardKeyword();
+
         extension(CardModel card)
         {
             public bool IsStress()
             {
-                return card.HasModKeyword(Stress);
+                return card.HasModKeyword(StressKeyword);
             }
 
             public bool IsDigging()
             {
-                return card.HasModKeyword(Digging);
+                return card.HasModKeyword(DiggingKeyword);
             }
 
             public bool IsWood()
             {
-                return card.HasModKeyword(Wood);
+                return card.HasModKeyword(WoodKeyword);
             }
 
             public bool IsStone()
             {
-                return card.HasModKeyword(Stone);
+                return card.HasModKeyword(StoneKeyword);
             }
 
             public bool IsIron()
             {
-                return card.HasModKeyword(Iron);
+                return card.HasModKeyword(IronKeyword);
             }
 
             public bool IsPlant()
             {
-                return card.HasModKeyword(Plant);
+                return card.HasModKeyword(PlantKeyword);
             }
 
             public bool IsSteam()
             {
-                return card.HasModKeyword(Steam);
+                return card.HasModKeyword(SteamKeyword);
             }
 
             public bool IsDiamond()
             {
-                return card.HasModKeyword(Diamond);
+                return card.HasModKeyword(DiamondKeyword);
             }
 
             public bool IsRadiationLeak()
             {
-                return card.HasModKeyword(RadiationLeak);
+                return card.HasModKeyword(RadiationLeakKeyword);
             }
 
             public bool IsEasyPeasy()
             {
-                return card.HasModKeyword(EasyPeasy);
+                return card.HasModKeyword(EasyPeasyKeyword);
             }
 
             public bool IsMagic()
             {
-                return card.HasModKeyword(Magic);
+                return card.HasModKeyword(MagicKeyword);
             }
         }
     }

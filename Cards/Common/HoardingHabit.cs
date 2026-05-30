@@ -20,6 +20,7 @@ namespace STS2_WineFox.Cards.Common
     public class HoardingHabit() : WineFoxCard(
         1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone];
 

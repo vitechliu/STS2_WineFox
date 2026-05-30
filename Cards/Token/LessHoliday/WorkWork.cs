@@ -13,6 +13,7 @@ namespace STS2_WineFox.Cards.Token.LessHoliday
     public class WorkWork() : WineFoxCard(
         0, CardType.Skill, CardRarity.Token, TargetType.None)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Stress];
 

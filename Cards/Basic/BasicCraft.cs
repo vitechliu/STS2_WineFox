@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -17,6 +17,7 @@ namespace STS2_WineFox.Cards.Basic
     public class BasicCraft() : WineFoxCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self),
         ICraftingCard
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft, WineFoxKeywords.Material];
 

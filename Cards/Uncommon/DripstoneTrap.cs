@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -28,6 +28,7 @@ namespace STS2_WineFox.Cards.Uncommon
             ModCardVars.Computed("Hits", 0m, CalcHits),
         ];
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Stone];
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

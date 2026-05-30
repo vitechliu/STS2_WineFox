@@ -14,6 +14,7 @@ namespace STS2_WineFox.Cards.Ancient
     {
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardNetheritePickaxe);
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Wood, WineFoxKeywords.Stone, WineFoxKeywords.Iron, WineFoxKeywords.Diamond];
         

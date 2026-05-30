@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using STS2_WineFox.Character;
 using STS2_WineFox.Commands;
@@ -13,6 +13,7 @@ namespace STS2_WineFox.Cards.Rare
     {
         protected override bool HasEnergyCostX => true;
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 

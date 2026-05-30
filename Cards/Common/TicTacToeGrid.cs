@@ -14,6 +14,7 @@ namespace STS2_WineFox.Cards.Common
     public class TicTacToeGrid() : WineFoxCard(
         1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICraftingCard
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Craft];
 

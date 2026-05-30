@@ -14,6 +14,7 @@ namespace STS2_WineFox.Cards.Rare
     public class NoMoreFalchion() : WineFoxCard(
         1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Iron];
 

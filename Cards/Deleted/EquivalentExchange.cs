@@ -15,6 +15,7 @@ namespace STS2_WineFox.Cards.Deleted
     public class EquivalentExchange() : WineFoxCard(
         0, CardType.Skill, CardRarity.Rare, TargetType.None)
     {
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Exchange];
 

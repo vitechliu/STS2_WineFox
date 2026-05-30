@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj1lt5qntlu3w"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://cx8jj5cfrtvnp" path="res://STS2_WineFox/scenes/combat/winefox_combat_atlas.tres" id="1_6t71n"]
+
+[node name="WinefoxCombat" type="Node2D"]
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_6t71n")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4, -15)
+scale = Vector2(0.165, 0.165)
+
+[node name="Bounds" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -125.0
+offset_top = -260.0
+offset_right = 125.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+position = Vector2(4, -179)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(0, -328)

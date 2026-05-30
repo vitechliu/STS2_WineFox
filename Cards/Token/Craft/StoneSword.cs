@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -20,6 +20,7 @@ namespace STS2_WineFox.Cards.Token.Craft
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardStoneSword);
 
+        [Obsolete]
         protected override IEnumerable<string> RegisteredKeywordIds =>
             [WineFoxKeywords.Strength];
 
