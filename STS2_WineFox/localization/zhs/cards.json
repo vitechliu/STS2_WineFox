@@ -210,7 +210,7 @@
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.title": "屏障波",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": "使所有敌人失去[purple]{Damage:diff()}[/purple]点生命。获得[purple]{ChantBlock:diff()}[/purple]点格挡。\n获得{ChantPower:diff()}点[gold]咏唱[/gold]。",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "间隙咏唱",
-  "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "获得1层[gold]虚弱[/gold]。每当你使敌人失去生命时，该敌人获得[blue]1[/blue]点格挡，你获得[blue]{Block:diff()}[/blue]点格挡。",
+  "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "失去[blue]2[/blue]点[gold]力量[/gold]。每当你使敌人失去生命时，该敌人获得[blue]1[/blue]点格挡，你获得[blue]{Block:diff()}[/blue]点格挡。可叠加（例如：2层时，敌人获得2点格挡，你获得4点格挡）。",
   "STS2_WINE_FOX_CARD_SHARD_COPY.title": "心胜于物",
   "STS2_WINE_FOX_CARD_SHARD_COPY.description": "你每次打出[gold]魔法[/gold]牌时，获得1层[gold]咏唱[/gold]。",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.title": "爆裂魔法",

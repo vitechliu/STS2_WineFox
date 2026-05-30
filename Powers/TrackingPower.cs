@@ -34,7 +34,9 @@ namespace STS2_WineFox.Powers
             if (result.UnblockedDamage <= 0) return;
 
             Flash();
-            await CreatureCmd.GainBlock(target, 1m, ValueProp.Unpowered, null);
+            // Base card applies 2 Amount per layer, so enemy block scales with layers.
+            var targetBlock = Math.Max(1m, Math.Floor(Amount / 2m));
+            await CreatureCmd.GainBlock(target, targetBlock, ValueProp.Unpowered, null);
             await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
         }
     }
