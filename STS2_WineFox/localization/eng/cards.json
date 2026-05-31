@@ -210,7 +210,7 @@
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.title": "Barrier Wave",
   "STS2_WINE_FOX_CARD_BARRIER_WAVE.description": "ALL enemies lose [purple]{Damage:diff()}[/purple] HP. Gain [purple]{ChantBlock:diff()}[/purple] [gold]Block[/gold].\nGain {ChantPower:diff()} [gold]Chant[/gold].",
   "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.title": "Intermittent Chanting",
-  "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "Lose [blue]2[/blue] [gold]Strength[/gold].\nWhenever you cause an enemy to lose HP, that enemy gains [blue]1[/blue] [gold]Block[/gold] and you gain [blue]{Block:diff()}[/blue] [gold]Block[/gold]. This effect stacks (e.g. at 2 stacks: enemy gains 2 Block, you gain 4 Block).",
+  "STS2_WINE_FOX_CARD_INTERMITTENT_CHANTING.description": "Lose [blue]2[/blue] [gold]Strength[/gold].\nWhenever you cause an enemy to lose HP, that enemy gains [blue]1[/blue] [gold]Block[/gold] and you gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
   "STS2_WINE_FOX_CARD_SHARD_COPY.title": "Mind Over Matter",
   "STS2_WINE_FOX_CARD_SHARD_COPY.description": "Whenever you play a [gold]Magic[/gold] card, gain [gold]Chant 1[/gold].",
   "STS2_WINE_FOX_CARD_EXPLOSION_MAGIC.title": "Explosion Magic",
