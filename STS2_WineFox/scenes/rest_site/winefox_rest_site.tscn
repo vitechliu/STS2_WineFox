@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://drwphpjvrbi1b" path="res://Scripts/WineFoxSelectionReticle.cs" id="3_f8q18"]
 
 [node name="winefoxRestSite" type="Node2D"]
-position = Vector2(0, -45)
+position = Vector2(0, -80)
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_f8q18")
 
@@ -22,6 +22,7 @@ offset_left = -294.2857
 offset_top = -481.42853
 offset_right = 295.71423
 offset_bottom = 497.14276
+pivot_offset = Vector2(126, 84)
 script = ExtResource("3_f8q18")
 
 [node name="Hitbox" type="Control" parent="ControlRoot"]
@@ -35,15 +36,15 @@ offset_bottom = 487.1428
 [node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = 209.209
-offset_top = -380.0
-offset_right = 209.209
-offset_bottom = -380.0
+offset_left = 132.659
+offset_top = -317.103
+offset_right = 132.659
+offset_bottom = -317.103
 
 [node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = -73.684
-offset_top = -380.0
-offset_right = -73.684
-offset_bottom = -380.0
+offset_left = -260.679
+offset_top = -324.997
+offset_right = -260.679
+offset_bottom = -324.997
