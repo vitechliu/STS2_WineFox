@@ -32,10 +32,10 @@ namespace STS2_WineFox.Cards.Rare
             if (node != null)
             {
                 //喝牛奶的位置
-                var mousePos = node.VfxSpawnPosition + new Vector2(25f, -60f);
+                var mousePos = node.VfxSpawnPosition + new Vector2(25f, -100f);
                 VFXUtil.PlaySimple(Const.Paths.DrinkMilkVfx, mousePos, 2.5f);
                 await VFXUtil.Wait(0.7f);
-                VFXUtil.PlaySFXSimple(Const.Audio.Drink);
+                VFXUtil.PlaySFXSimple(Const.Audio.Drink, .7f);
             }
             // VfxCmd.PlayOnCreatureCenter(creature, "vfx/vfx_flying_slash");
             

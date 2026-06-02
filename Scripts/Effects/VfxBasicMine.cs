@@ -60,7 +60,7 @@ public partial class VfxBasicMine : Node2D
         // tween3.Parallel().TweenProperty(block, "scale", new Vector2(0.4f, 0.4f), Phase3Duration);
         await ToSignal(tween3, Tween.SignalName.Finished);
         
-        VFXUtil.PlaySFXSimple(Const.Audio.PickUp);
+        VFXUtil.PlaySFXSimple(Const.Audio.PickUp, .6f);
         block.QueueFree();
 
         _completedCount++;

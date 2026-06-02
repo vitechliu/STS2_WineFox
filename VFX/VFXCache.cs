@@ -15,6 +15,8 @@ namespace STS2_WineFox.Utils
             return [
                 Const.Paths.DripstoneVfx,
                 Const.Paths.BasicMineVfx,
+                Const.Paths.HoldWToPonderVfx,
+                Const.Paths.DrinkMilkVfx,
             ];
         }
 

@@ -86,7 +86,7 @@
   "STS2_WINE_FOX_CARD_MILK.description": "Remove ALL debuffs from yourself.",
   "STS2_WINE_FOX_CARD_VACANT_DOMAIN.title": "Vacant Domain",
   "STS2_WINE_FOX_CARD_VACANT_DOMAIN.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {StonePower:diff()} [gold]Cobblestone[/gold].",
-  "STS2_WINE_FOX_CARD_PRESS_W_TO_THINK.title": "\"W\" to Think",
+  "STS2_WINE_FOX_CARD_PRESS_W_TO_THINK.title": "Hold [W] to Ponder",
   "STS2_WINE_FOX_CARD_PRESS_W_TO_THINK.description": "Choose 1 of 3 cards from the top of your [gold]Draw Pile[/gold] to add into your hand.\nIt gains [gold]Replay[/gold] {Replay:diff()} and [gold]Exhaust[/gold].",
   "STS2_WINE_FOX_CARD_BACKUP_CRAFTING.title": "Backup Workbench",
   "STS2_WINE_FOX_CARD_BACKUP_CRAFTING.description": "[gold]Craft[/gold].",
