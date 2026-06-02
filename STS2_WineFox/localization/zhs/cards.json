@@ -4,7 +4,7 @@
   "STS2_WINE_FOX_CARD_WINE_FOX_DEFEND.title": "防御",
   "STS2_WINE_FOX_CARD_WINE_FOX_DEFEND.description": "获得{Block:diff()}点格挡。",
   "STS2_WINE_FOX_CARD_BASIC_MINE.title": "基础采掘",
-  "STS2_WINE_FOX_CARD_BASIC_MINE.description": "获得{Wood:diff()}[gold]木板[/gold]和{Stone:diff()}[gold]圆石[/gold]。",
+  "STS2_WINE_FOX_CARD_BASIC_MINE.description": "获得{Wood:diff()}个[gold]木板[/gold]和{Stone:diff()}个[gold]圆石[/gold]。",
   "STS2_WINE_FOX_CARD_STONE_PICKAXE.title": "石镐",
   "STS2_WINE_FOX_CARD_STONE_PICKAXE.description": "{IfUpgraded:show:立刻获得{WoodPower:diff()}个[gold]木板[/gold]和{StonePower:diff()}个[gold]圆石[/gold]。\n|}每回合开始时，获得[blue]{Digging:diff()}[/blue]个[gold]木板[/gold]和[blue]{Digging:diff()}[/blue]个[gold]圆石[/gold]。{CraftRecipeSuffix}",
   "STS2_WINE_FOX_CARD_BASIC_CRAFT.title": "基础合成",
@@ -222,7 +222,7 @@
   "STS2_WINE_FOX_CARD_MEMORY.description": "在你的回合开始时，将你上一回合最后打出的[gold]技能牌[/gold]的一张带有[gold]消耗[/gold]{IfUpgraded:show:，[gold]保留[/gold]|}的复制品加入你的手牌。",
 
   "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.title": "异界跨越",
-  "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.description": "每回合开始时，随机选择一张手牌，将其一张[gold]虚无[/gold]，[gold]消耗[/gold]复制品加入到你的手牌。",
+  "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.description": "每2回合开始时，选择一张手牌，将其一张[gold]虚无[/gold]，[gold]消耗[/gold]复制品加入到你的手牌。",
   "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE": "选择要复制的牌",
 
   "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.title": "石化术",

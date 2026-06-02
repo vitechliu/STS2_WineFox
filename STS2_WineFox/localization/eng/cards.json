@@ -222,8 +222,8 @@
   "STS2_WINE_FOX_CARD_MEMORY.description": "At the start of your turn, add a copy of the last [gold]Skill[/gold] you played last turn. It gains [gold]Exhaust[/gold]{IfUpgraded:show: and [gold]Retain[/gold]|}.",
 
   "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.title": "Otherworld Crossing",
-  "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.description": "At the start of each turn, randomly choose a card in your hand. Add a copy of it to your hand with [gold]Ethereal[/gold] and [gold]Exhaust[/gold].",
-  "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE": "Choose a card to copy",
+  "STS2_WINE_FOX_CARD_OTHERWORLD_CROSSING.description": "At the start of every 2nd turn, choose a card in your hand. Add a copy of it to your hand with [gold]Ethereal[/gold] and [gold]Exhaust[/gold].",
+  "STS2_WINE_FOX_POWER_OTHERWORLD_CROSSING_CHOOSE": "Choose card(s) to copy",
 
   "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.title": "Petrification",
   "STS2_WINE_FOX_CARD_PETRIFICATION_SPELL.description": "Gain [purple]{Stones:diff()}[/purple] [gold]Cobblestone[/gold]. ALL enemies lose HP equal to the [gold]Cobblestone[/gold] you gained this turn.\nGain [purple]{ChantPower:diff()}[/purple] [gold]Chant[/gold].",
