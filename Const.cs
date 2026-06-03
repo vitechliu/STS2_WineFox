@@ -151,8 +151,8 @@ namespace STS2_WineFox
             public const string CardNetheritePickaxe = Root + "/cards/card_netherite_pickaxe.png";
             public const string CardCobblestoneGenerator = Root + "/cards/card_cobblestone_generator.png";
             public const string CardShieldAttack = Root + "/cards/card_shield_attack.png";
-            public const string CardSpinningHand = Root + "/cards/card_test.png";
-            public const string CardProductionDocument = Root + "/cards/card_test.png";
+            public const string CardSpinningHand = Root + "/cards/card_spinning_hand.png";
+            public const string CardProductionDocument = Root + "/cards/card_production_document.png";
             public const string CardMilk = Root + "/cards/card_milk.png";
             public const string CardVacantDomain = Root + "/cards/card_vacantdomain.png";
             public const string CardRecordPlayer = Root + "/cards/card_record_player.png";
