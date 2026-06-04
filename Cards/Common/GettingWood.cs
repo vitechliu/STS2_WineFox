@@ -21,7 +21,7 @@ namespace STS2_WineFox.Cards.Common
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            ModCardVars.Computed("Wood", 4m, _ => DynamicVars["Wood"].BaseValue,
+            ModCardVars.Computed("Wood", 6m, _ => DynamicVars["Wood"].BaseValue,
                 WineFoxCardVarFactory.StressDoubledDynamicVar("Wood")),
         ];
 
