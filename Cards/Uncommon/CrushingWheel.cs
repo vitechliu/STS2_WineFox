@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2_WineFox.Character;
 using STS2_WineFox.Commands;
@@ -28,7 +29,7 @@ namespace STS2_WineFox.Cards.Uncommon
 
         public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
         {
-            if (player.Creature != Owner?.Creature) return Task.CompletedTask;
+            if (player.Creature != Owner.Creature) return Task.CompletedTask;
 
             if (_materialConsumeCountTracked > 0)
                 EnergyCost.AddThisCombat(_materialConsumeCountTracked);
@@ -42,11 +43,30 @@ namespace STS2_WineFox.Cards.Uncommon
         {
             if (cardPlay.Card.Owner != Owner) return Task.CompletedTask;
 
-            var newCrafts = CraftCmd.GetMaterialConsumeCountThisTurn(Owner.Creature) - _materialConsumeCountTracked;
+            return SyncCostWithCurrentMaterialConsumesThisTurn();
+        }
+
+        public override Task AfterCardEnteredCombat(CardModel card)
+        {
+            if (card != this || IsClone)
+                return Task.CompletedTask;
+
+            return SyncCostWithCurrentMaterialConsumesThisTurn();
+        }
+
+        private Task SyncCostWithCurrentMaterialConsumesThisTurn()
+        {
+            var ownerCreature = Owner.Creature;
+
+            if (!CraftCmd.HasConsumedMaterialThisTurn(ownerCreature))
+                return Task.CompletedTask;
+
+            var totalMaterialConsumesThisTurn = CraftCmd.GetMaterialConsumeCountThisTurn(ownerCreature);
+            var newCrafts = totalMaterialConsumesThisTurn - _materialConsumeCountTracked;
             if (newCrafts <= 0) return Task.CompletedTask;
 
             EnergyCost.AddThisCombat(-newCrafts);
-            _materialConsumeCountTracked = CraftCmd.GetMaterialConsumeCountThisTurn(Owner.Creature);
+            _materialConsumeCountTracked = totalMaterialConsumesThisTurn;
             return Task.CompletedTask;
         }
 
