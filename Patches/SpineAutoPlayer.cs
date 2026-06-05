@@ -21,25 +21,39 @@ namespace STS2_WineFox.Patches
         private void TryPlayDefaultAnimation()
         {
             var megaSprite = new MegaSprite(GetParent());
-            var skeleton = megaSprite.GetSkeleton();
-            if (skeleton == null) return;
+            var animationState = megaSprite.TryGetAnimationState();
+            if (animationState == null) return;
 
-            var animations = skeleton.GetData().GetAnimations();
-            if (animations.Count == 0) return;
+            var animationNames = GetAnimationNames(megaSprite);
+            if (animationNames.Count == 0) return;
 
             const string preferredAnimation = "idle";
-            var animationToPlay = new MegaAnimation(animations[0]).GetName();
+            var animationToPlay = animationNames[0];
 
-            foreach (var animation in animations)
+            foreach (var name in animationNames)
             {
-                var name = new MegaAnimation(animation).GetName();
-                if (name != preferredAnimation) continue;
+                if (!string.Equals(name, preferredAnimation, StringComparison.OrdinalIgnoreCase)) continue;
 
                 animationToPlay = name;
                 break;
             }
 
-            megaSprite.GetAnimationState().SetAnimation(animationToPlay);
+            animationState.SetAnimation(animationToPlay);
+        }
+
+        private static List<string> GetAnimationNames(MegaSprite megaSprite)
+        {
+            var data = megaSprite.GetSkeleton()?.GetData();
+            if (data == null)
+                return [];
+
+            var names = data.GetAnimationNames()
+                .Where(name => !string.IsNullOrWhiteSpace(name))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            names.Sort(StringComparer.OrdinalIgnoreCase);
+            return names;
         }
     }
 }
