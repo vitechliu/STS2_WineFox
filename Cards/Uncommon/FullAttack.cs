@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -15,10 +15,7 @@ namespace STS2_WineFox.Cards.Uncommon
     [RegisterCard(typeof(WineFoxCardPool))]
     public class FullAttack() : WineFoxCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Material];
-
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [WineFoxKeywords.MaterialKeyword];
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new CalculationBaseVar(0m),

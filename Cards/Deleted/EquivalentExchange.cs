@@ -1,4 +1,4 @@
-﻿/*
+/*
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,6 +9,7 @@ using STS2_WineFox.Commands;
 using STS2_WineFox.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using MegaCrit.Sts2.Core.Models;
 
 namespace STS2_WineFox.Cards.Deleted
 {
@@ -16,11 +17,7 @@ namespace STS2_WineFox.Cards.Deleted
     public class EquivalentExchange() : WineFoxCard(
         0, CardType.Skill, CardRarity.Rare, TargetType.None)
     {
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Exchange];
-
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain, WineFoxKeywords.ExchangeKeyword];
 
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardEquivalentExchange);
 

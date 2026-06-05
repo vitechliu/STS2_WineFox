@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -8,6 +8,7 @@ using STS2_WineFox.Powers;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using MegaCrit.Sts2.Core.Models;
 
 namespace STS2_WineFox.Cards.Common
 {
@@ -20,10 +21,7 @@ namespace STS2_WineFox.Cards.Common
     public class HoardingHabit() : WineFoxCard(
         1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Wood, WineFoxKeywords.Stone];
-
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [WineFoxKeywords.WoodKeyword, WineFoxKeywords.StoneKeyword];
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             ModCardVars.Computed("Wood", 1m, _ => DynamicVars["Wood"].BaseValue,

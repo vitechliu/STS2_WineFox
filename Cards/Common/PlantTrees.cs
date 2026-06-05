@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -9,6 +9,7 @@ using STS2_WineFox.Powers;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using MegaCrit.Sts2.Core.Models;
 
 namespace STS2_WineFox.Cards.Common
 {
@@ -17,10 +18,7 @@ namespace STS2_WineFox.Cards.Common
     {
         public override bool GainsBlock => true;
 
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Wood];
-
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [WineFoxKeywords.WoodKeyword];
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new BlockVar(5, ValueProp.Move),

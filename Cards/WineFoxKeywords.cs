@@ -1,5 +1,5 @@
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Content;
 using STS2RitsuLib.Keywords;
 
@@ -32,6 +32,7 @@ namespace STS2_WineFox.Cards
         public static readonly string Plant = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, PlantKey);
         public static readonly string Steam = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, SteamKey);
         public static readonly string Strength = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, StrengthKey);
+        public static readonly string Plating = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, PlatingKey);
         public static readonly string Diamond = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, DiamondKey);
         public static readonly string Material = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, MaterialKey);
 
@@ -43,17 +44,22 @@ namespace STS2_WineFox.Cards
         public static readonly string Exchange = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, ExchangeKey);
         public static readonly string Magic = ModContentRegistry.GetQualifiedKeywordId(Const.ModId, MagicKey);
 
-        private static readonly CardKeyword StressKeyword = Stress.GetModCardKeyword();
-        private static readonly CardKeyword DiggingKeyword = Digging.GetModCardKeyword();
-        private static readonly CardKeyword WoodKeyword = Wood.GetModCardKeyword();
-        private static readonly CardKeyword StoneKeyword = Stone.GetModCardKeyword();
-        private static readonly CardKeyword IronKeyword = Iron.GetModCardKeyword();
-        private static readonly CardKeyword PlantKeyword = Plant.GetModCardKeyword();
-        private static readonly CardKeyword SteamKeyword = Steam.GetModCardKeyword();
-        private static readonly CardKeyword DiamondKeyword = Diamond.GetModCardKeyword();
-        private static readonly CardKeyword RadiationLeakKeyword = RadiationLeak.GetModCardKeyword();
-        private static readonly CardKeyword EasyPeasyKeyword = EasyPeasy.GetModCardKeyword();
-        private static readonly CardKeyword MagicKeyword = Magic.GetModCardKeyword();
+        public static readonly CardKeyword StressKeyword = Stress.GetModCardKeyword();
+        public static readonly CardKeyword DiggingKeyword = Digging.GetModCardKeyword();
+        public static readonly CardKeyword WoodKeyword = Wood.GetModCardKeyword();
+        public static readonly CardKeyword StoneKeyword = Stone.GetModCardKeyword();
+        public static readonly CardKeyword IronKeyword = Iron.GetModCardKeyword();
+        public static readonly CardKeyword PlantKeyword = Plant.GetModCardKeyword();
+        public static readonly CardKeyword SteamKeyword = Steam.GetModCardKeyword();
+        public static readonly CardKeyword StrengthKeyword = Strength.GetModCardKeyword();
+        public static readonly CardKeyword PlatingKeyword = Plating.GetModCardKeyword();
+        public static readonly CardKeyword DiamondKeyword = Diamond.GetModCardKeyword();
+        public static readonly CardKeyword MaterialKeyword = Material.GetModCardKeyword();
+        public static readonly CardKeyword RadiationLeakKeyword = RadiationLeak.GetModCardKeyword();
+        public static readonly CardKeyword EasyPeasyKeyword = EasyPeasy.GetModCardKeyword();
+        public static readonly CardKeyword CraftKeyword = Craft.GetModCardKeyword();
+        public static readonly CardKeyword ExchangeKeyword = Exchange.GetModCardKeyword();
+        public static readonly CardKeyword MagicKeyword = Magic.GetModCardKeyword();
 
         extension(CardModel card)
         {
@@ -92,9 +98,24 @@ namespace STS2_WineFox.Cards
                 return card.HasModKeyword(SteamKeyword);
             }
 
+            public bool IsStrength()
+            {
+                return card.HasModKeyword(StrengthKeyword);
+            }
+
+            public bool IsPlating()
+            {
+                return card.HasModKeyword(PlatingKeyword);
+            }
+
             public bool IsDiamond()
             {
                 return card.HasModKeyword(DiamondKeyword);
+            }
+
+            public bool IsMaterial()
+            {
+                return card.HasModKeyword(MaterialKeyword);
             }
 
             public bool IsRadiationLeak()
@@ -105,6 +126,16 @@ namespace STS2_WineFox.Cards
             public bool IsEasyPeasy()
             {
                 return card.HasModKeyword(EasyPeasyKeyword);
+            }
+
+            public bool IsCraft()
+            {
+                return card.HasModKeyword(CraftKeyword);
+            }
+
+            public bool IsExchange()
+            {
+                return card.HasModKeyword(ExchangeKeyword);
             }
 
             public bool IsMagic()

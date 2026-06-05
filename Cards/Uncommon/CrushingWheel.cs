@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,10 +18,7 @@ namespace STS2_WineFox.Cards.Uncommon
     {
         private int _materialConsumeCountTracked;
 
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Material];
-
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [WineFoxKeywords.MaterialKeyword];
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new DamageVar(21m, ValueProp.Move)];
 

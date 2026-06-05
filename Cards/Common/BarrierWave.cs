@@ -10,6 +10,7 @@ using STS2_WineFox.Powers;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using MegaCrit.Sts2.Core.Models;
 
 namespace STS2_WineFox.Cards.Common
 {
@@ -33,9 +34,7 @@ namespace STS2_WineFox.Cards.Common
         protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
             [HoverTipFactory.FromPower<ChantPower>()];
 
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds => [WineFoxKeywords.Magic];
-        
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [WineFoxKeywords.MagicKeyword];
         public override CardAssetProfile AssetProfile => Art(Const.Paths.CardBarrierWave);
 
         protected override async Task OnPlay(

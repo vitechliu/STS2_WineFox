@@ -1,4 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -18,10 +18,7 @@ namespace STS2_WineFox.Cards.Uncommon
         private static readonly AttachedState<CardModel, StressConsumeSeriesState> StressConsumeSeriesStates =
             new(() => new());
 
-        [Obsolete]
-        protected override IEnumerable<string> RegisteredKeywordIds =>
-            [WineFoxKeywords.Stress];
-
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [WineFoxKeywords.StressKeyword];
         protected override IEnumerable<DynamicVar> CanonicalVars =>
             [new DamageVar(8m, ValueProp.Move), new IntVar("BonusDamage", 7m)];
 
